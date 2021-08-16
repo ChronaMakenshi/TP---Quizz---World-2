@@ -20,25 +20,38 @@
     </div>
     <div class="mb-3 w-25 m-auto">
         <label for="exampleInputPseudo1" class="form-label">Pseudo</label>
-        <input type="text" class="form-control" id="exampleInputPseudo1">
+        <input type="text" class="form-control" name="pseudo" id="exampleInputPseudo1">
     </div> 
     <div class="mb-3 w-25 m-auto">
         <label for="exampleInputEmail1" class="form-label">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1">
+        <input type="email" class="form-control" name="mail" id="exampleInputEmail1">
     </div> 
     <div class="mb-3 w-25 m-auto">
         <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <input type="password" class="form-control" name="mdp" id="exampleInputPassword1">
     </div>
     <div class="w-25 m-auto">
         <label for="exampleInputPassword2" class="form-label">Mot de passe à confirmé</label>
-        <input type="password" class="form-control" id="exampleInputPassword2">
+        <input type="password" class="form-control" name="mdp1" id="exampleInputPassword2">
     </div>
     <div class="py-3 w-25 m-auto">
-    <button type="button" class="btn-white btn-outline-primary">Inscription</button>
+    <button type="submit" name="submit" class="btn-white btn-outline-primary">Inscription</button>
     <a href="quiz.php">passage secret</a>
     </div>
 </form>
     </div>
+    <?php 
+    include 'contact.php';
+$form = new contact();
+if (isset($_POST['submit'])) {
+    if ($_POST['mdp']===$_POST['mdp1']) {
+        $form->connecte_verif($_POST['pseudo'],$_POST['mail'],$_POST['mdp']);
+    }
+}
+
+
+
+    
+    ?>
 </body>
 </html>
