@@ -1,0 +1,230 @@
+@font-face {
+  font-family: "PressStart2P-Regular";
+  src: url("../fonts/PressStart2P-Regular.ttf");
+ }
+
+#anec {
+  font-size: 25px;
+}
+
+/* taille image dans choix du theme */
+img {
+  border-radius: 30px;
+  width: 90%;
+}
+/* body */
+body {
+  background-image: url(../img/quiz.jpg);
+  background-size: cover;
+  font-family: "Sacramento", cursive;
+  font-size: 1.8em;
+  width: 100%;
+}
+/* image theme choisie */
+.img1 {
+  width: 50%;
+  border: dashed white 15px;
+  box-shadow: 10px 10px 15px black;
+  background-color: black;
+}
+/* bouton suivant n°1 */
+#testbtn {
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 48%;
+}
+/* bouton suivant n°2 */
+#testbtn1 {
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 48%;
+}
+/* bouton accueil */
+#btnaccueil {
+  margin-left: 40%;
+  margin-right: 40%;
+}
+/* mise en forme des different bouton suivant et accueil */
+button {
+  margin-top: 50px;
+  border-radius: 7px;
+}
+/* mise en forme des 4 reponse du jeux */
+.resp {
+  border: solid white;
+  margin-top: 50px;
+  border-radius: 20px;
+  height: 80px;
+  width: 260px;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 20px;
+  background-color: #e17722;
+}
+/* mise en forme de la drop zone */
+#drop {
+  border: dashed black;
+  border-radius: 15px;
+  width: 500px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  align-items: center;
+}
+/* span du numero de la question */
+.color1 {
+  color: #ff9f43;
+  font-weight: bold;
+}
+/* span de la question */
+.color2 {
+  color: #5a2b52;
+  font-weight: bold;
+}
+/* couleur des carte du depart */
+.fond {
+  background-color: rgb(244 116 7);
+  border: dashed black 3px;
+  border-radius: 30px;
+  box-shadow: 15px 10px 2px black;
+}
+/* titre H1 */
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 3px 3px 2px #d6c100;
+  font-family: "PressStart2P-Regular";
+}
+/* titre H2 */
+h2 {
+  font-size: 40px;
+  padding-top: 5px;
+  font-weight: bold;
+  text-shadow: 3px 3px 2px #5a2b52;
+}
+/* titre H3 */
+h3 {
+  font-size: 50px;
+  text-shadow: 2px 2px 1px #d6c100;
+}
+
+/* couleur des difficulter */
+.color-1 {
+  color: #2ecc71;
+  text-shadow: 3px 2px 6px black;
+  font-weight: bold;
+  font-size: 80%;
+}
+.color-2 {
+  color: #f1c40f;
+  text-shadow: 3px 2px 6px black;
+  font-weight: bold;
+  font-size: 80%;
+}
+.color-3 {
+  color: #ff1e1e;
+  text-shadow: 3px 2px 5px black;
+  font-weight: bold;
+  font-size: 80%;
+}
+
+/* bouton radio */
+
+input[type="radio"] {
+  width: 17px;
+  min-width: 17px;
+  height: 17px;
+  min-height: 17px;
+  border: 1px solid darkgray;
+  border-radius: 50%;
+  outline: none;
+}
+
+input[type="radio"]:before {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 60%;
+  margin: 20% auto;
+  border-radius: 50%;
+}
+
+input[type="radio"]#color-1:checked:before {
+  background: #2ecc71;
+}
+input[type="radio"]#color-2:checked:before {
+  background: #f1c40f;
+}
+input[type="radio"]#color-3:checked:before {
+  background: #ff1e1e;
+}
+input[type="radio"]#color-4:checked:before {
+  background: #2ecc71;
+}
+input[type="radio"]#color-5:checked:before {
+  background: #f1c40f;
+}
+input[type="radio"]#color-6:checked:before {
+  background: #ff1e1e;
+}
+input[type="radio"]#color-7:checked:before {
+  background: #2ecc71;
+}
+input[type="radio"]#color-8:checked:before {
+  background: #f1c40f;
+}
+input[type="radio"]#color-9:checked:before {
+  background: #ff1e1e;
+}
+input[type="radio"]#color-10:checked:before {
+  background: #2ecc71;
+}
+input[type="radio"]#color-11:checked:before {
+  background: #f1c40f;
+}
+input[type="radio"]#color-12:checked:before {
+  background: #ff1e1e;
+}
+input[type="radio"]#color-13:checked:before {
+  background: #2ecc71;
+}
+input[type="radio"]#color-14:checked:before {
+  background: #f1c40f;
+}
+input[type="radio"]#color-15:checked:before {
+  background: #ff1e1e;
+}
+input[type="radio"]#color-16:checked:before {
+  background: #2ecc71;
+}
+input[type="radio"]#color-17:checked:before {
+  background: #f1c40f;
+}
+input[type="radio"]#color-18:checked:before {
+  background: #ff1e1e;
+}
+input[type="radio"]#color-19:checked:before {
+  background: #2ecc71;
+}
+input[type="radio"]#color-20:checked:before {
+  background: #f1c40f;
+}
+input[type="radio"]#color-21:checked:before {
+  background: #ff1e1e;
+}
+input[type="radio"]#color-22:checked:before {
+  background: #2ecc71;
+}
+input[type="radio"]#color-23:checked:before {
+  background: #f1c40f;
+}
+input[type="radio"]#color-24:checked:before {
+  background: #ff1e1e;
+}
+.bg-opacity{
+  background-color: rgba(0, 0, 0, 0.7);
+}
+p{
+  text-shadow: 2px 2px 1px #d6c100;
+}

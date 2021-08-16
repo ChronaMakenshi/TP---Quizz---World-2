@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "PressStart2P-Regular";
+  src: url("../fonts/PressStart2P-Regular.ttf");
+}
+
+body {
+  background-image: url(../img/quiz.jpg);
+  background-size: cover;
+  font-family: "PressStart2P-Regular", serif;
+  width: 100%;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 3px 3px 2px #d6c100;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: bold;
+  text-shadow: 2px 2px 1px #d6c100;
+}
+
+label {
+  text-shadow: 2px 2px 1px #d6c100;
+}
+
+.bg-opacity {
+  background-color: rgba(0, 0, 0, 0.7);
+}
