@@ -13,7 +13,7 @@
         <h1 class="m-3 p-2 bd-highlight m-auto">Quizz World</h1>
         <a class="p-2 bd-highlight text-decoration-none" href="index.php">Inscription</a>
     </div>
-    <form class="p-2 bg-opacity"">
+    <form class="p-2 bg-opacity">
     <div class="text-center">
         <h2 class="my-5">Connexion au Quizz World</h2>
     </div>
