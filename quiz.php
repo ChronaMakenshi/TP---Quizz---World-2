@@ -14,7 +14,55 @@
       <h1 class="my-5 p-2 bd-highlight m-auto text-primary">Quizz World</h1>
       <a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
     </div>
-    <a class="p-2 bd-highlight" href="creer.php">Créer</a>
+    <?php
+    while($ligne = $reponse -> fetch() ){
+    echo "<a class='p-2 bd-highlight' href='creer.php'>Créer</a>";
+    echo "<div class='all'>";
+    echo "<div class='row row-col row-col-md-4 g-4 mb-5'>";
+    echo "<div class='col'>";
+    echo "<div class='card h-100 fond'>";
+    echo "<h2 class='text-center'>Application Web</h2>";
+    echo "<img src='img/web.jpg' class='m-auto' alt='...' />";
+    echo "<div id='web' class='card-body'>";
+    echo "<div class='d-flex justify-content-evenly'>";
+    echo "<div class='d-flex flex-column'>";
+    echo "<a class='bd-highlight' href='supprimer.php?code= ".$ligne['difficulter'].">Supprimer</a>";
+    echo "<div><input value='débutant' type='radio' name='internet' id='color-1' checked />";
+    echo "<label class='color-1' for='color-1'>Débutant</label>";
+                </div>
+                  <a class="bd-highlight" href="editer.php">Editer</a>
+                </div>
+                <div class="d-flex flex-column">
+                  <a class="bd-highlight" href="supprimer.php?code= $ligne[difficulter]">Supprimer</a>
+                <div>
+                <input
+                  value="confirmé"
+                  type="radio"
+                  name="internet"
+                  id="color-2"
+                />
+                <label class="color-2" for="color-2">Confirmé</label>
+                </div>
+                  <a class="bd-highlight" href="editer.php">Editer</a>
+                </div>
+                <div class="d-flex flex-column">
+                 <a class="bd-highlight" href="supprimer.php?code= $ligne[difficulter]">Supprimer</a>
+                <div>
+                <input
+                  value="expert"
+                  type="radio"
+                  name="internet"
+                  id="color-3"
+                />
+                <label class="color-3" for="color-3">Expert</label>
+                </div>
+                  <a class="bd-highlight" href="editer.php">Editer</a>
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+</div>
     <!-- visuel de depart avec les theme -->
 
     <script src="js/jquery-3.6.0.js"></script>
