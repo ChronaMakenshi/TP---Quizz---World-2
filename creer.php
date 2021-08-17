@@ -39,24 +39,24 @@
     <div class="w-25 me-5">
         <label for="exampleInputReponse" class="form-label">Reponse 1</label>
         <input type="text" class="form-control" name="Reponse" id="exampleInputReponse">
-        <input type="radio" name="bonnereponse" id="bonnereponse">Bonne réponse
+        <input type="radio" class="me-1" name="bonnereponse" id="bonnereponse">Bonne réponse
     </div>
     <div class="w-25">
         <label for="exampleInputReponse" class="form-label">Reponse 2</label>
         <input type="text" class="form-control" name="Reponse2" id="exampleInputReponse">
-        <input type="radio" name="bonnereponse" id="bonnereponse">Bonne réponse
+        <input type="radio" class="me-1" name="bonnereponse" id="bonnereponse">Bonne réponse
     </div>
     </div>
     <div class="d-flex flex-wrap justify-content-center mt-2">
     <div class="w-25 me-5">
         <label for="exampleInputReponse" class="form-label">Reponse 3</label>
         <input type="text" class="form-control" name="Reponse3" id="exampleInputReponse">
-        <input type="radio" name="bonnereponse" id="bonnereponse">Bonne réponse
+        <input type="radio" class="me-1" name="bonnereponse" id="bonnereponse">Bonne réponse
     </div>
     <div class="w-25">
         <label for="exampleInputReponse" class="form-label">Reponse 4</label>
         <input type="text" class="form-control" name="Reponse4" id="exampleInputReponse">
-        <input type="radio" name="bonnereponse" id="bonnereponse">Bonne réponse
+        <input type="radio" class="me-1" name="bonnereponse" id="bonnereponse">Bonne réponse
     </div>
     </div>
     </div>
