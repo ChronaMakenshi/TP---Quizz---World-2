@@ -26,22 +26,15 @@
         <td>Validé</td>
 <?php
 
-{
-    $dsn = "mysql:dbname=bdd-quizz;host=localhost:3306";
-    try {
-        $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
-        $connexion = new PDO($dsn, "root", "",$option);
-    } catch (PDOException $e) {
-        printf("Echec connexion : %s\n", $e->getMessage());
-        
-    }
-    
-}
+include 'database.php';
 
 
-$reponse = $connexion->query("select * from inscription");
 
-;    
+$pdo = Database::connect();
+    // interrogation BDD
+        $sql = "select * FROM inscription "; 
+        $reponse = $pdo->query($sql);
+         
     
 
 while($ligne = $reponse -> fetch() ){
@@ -52,7 +45,7 @@ while($ligne = $reponse -> fetch() ){
     echo "<tr><td>".$ligne["id"]."</td>";
     echo "<td>".$ligne["pseudo"]."</a></td>";
     echo "<td>".$ligne["mail"]."</td>";
-    echo "<td><a href='supprimer.php?code= $ligne[id]'> Suprimer </a></td>";
+    echo "<td><a href='supprimer1.php?code= $ligne[id]'> Suprimer </a></td>";
     echo "<td><a href='valide.php?code= $ligne[id]'>Valider</a></td></tr>";
 }
 ?>
