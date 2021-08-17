@@ -13,21 +13,65 @@
         <h1 class="m-3 p-2 bd-highlight m-auto">Quizz World</h1>
         <a class="p-2 bd-highlight text-decoration-none" href="index.php">Inscription</a>
     </div>
-    <form class="p-2 bg-opacity">
+    <form class="p-2 bg-opacity" method="POST">
     <div class="text-center">
         <h2 class="my-5">Connexion au Quizz World</h2>
     </div>
     <div class="mb-3 w-25 m-auto">
-        <label for="exampleInputEmail1" class="form-label">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1">
+        <label for="exampleInputEmail1" class="form-label">Pseudo</label>
+        <input type="text" name="pseudo" class="form-control" id="exampleInputEmail1">
     </div> 
     <div class="mb-3 w-25 m-auto">
         <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <input type="password" name="pass" class="form-control" id="exampleInputPassword1">
     </div>
     <div class="py-3 w-25 m-auto">
-    <button type="button" class="btn-white btn-outline-primary">Connecté</button>
+    <button type="submit" name="submit" class="btn-white btn-outline-primary">Connecté</button>
     </div>
 </form>
+<?php
+include 'contact.php';
+$form= new contact();
+$mail=null;
+$pass=null;
+if (!empty($_GET['action'])&&$_GET['action']==='deconnecter') {
+    unset($_COOKIE['pseudo']);
+    unset($_COOKIE['pass']);
+    setcookie('pseudo','',time()-10);
+    setcookie('password','',time()-10);
+}
+if (!empty($_POST['pseudo'])AND!empty($_POST['pass'])) {
+    setcookie('pseudo',$_POST['pseudo']);
+    setcookie('password',$_POST['pass']);
+}
+$erreur = true;
+        if (empty($_POST["pseudo"] ) || empty($_POST["pass"] )) {
+            $msg = "Saisie obligatoire";
+            $erreur = true;
+            if ($erreur == true) {
+                echo $msg;
+            }
+        }else{
+            
+            $form->connecte($_POST['pseudo'],$_POST['pass']);
+
+
+        }
+
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
 </body>
 </html>

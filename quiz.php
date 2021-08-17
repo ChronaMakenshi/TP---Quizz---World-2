@@ -12,7 +12,7 @@
   <body class="m-auto">
     <div class="d-flex flex-wrap bd-highlight mb-3">
       <h1 class="my-5 p-2 bd-highlight m-auto text-primary">Quizz World</h1>
-      <a class="p-2 bd-highlight text-decoration-none" href="connexion.php">Déconnexion</a>
+      <a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
     </div>
     <!-- visuel de depart avec les theme -->
 

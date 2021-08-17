@@ -25,23 +25,16 @@
         <td>Supprimé</td>
         <td>Validé</td>
 <?php
+include 'database.php';
 
-{
-    $dsn = "mysql:dbname=bdd-quizz;host=localhost:3306";
-    try {
-        $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
-        $connexion = new PDO($dsn, "root", "",$option);
-    } catch (PDOException $e) {
-        printf("Echec connexion : %s\n", $e->getMessage());
+
+
+$pdo = Database::connect();
+    // interrogation BDD
+        $sql = "select * FROM admistration "; 
+        $reponse = $pdo->query($sql);
         
-    }
-    
-}
-
-
-$reponse = $connexion->query("select * from admistration");
-
-;    
+ 
     
 
 while($ligne = $reponse -> fetch() ){

@@ -21,8 +21,40 @@ public function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
   }
+//   affichage info
+public function verif($tableau){
+
+    $pdo = Database::connect();
+    // interrogation BDD
+        $sql = "select * FROM $tableau "; 
+        $reponse = $pdo->prepare($sql);
+        return $reponse;
 
 
+
+}
+
+
+
+
+
+
+// verif connection
+public function connecte($Pseudo,$Mdp)
+{
+    $pseudo=$this->test_input($Pseudo);
+    $mdp=$this->test_input($Mdp);
+    $pdo = Database::connect();
+    // interrogation BDD
+        $sql = "select * FROM inscription WHERE pseudo= :pseudo AND mdp =:mdp"; 
+        $reponse = $pdo->prepare($sql);
+        $reponse->execute(array(":pseudo"=>$pseudo,":mdp"=>$mdp));
+        var_dump($reponse->rowCount());
+    // connection
+    if ($reponse->rowCount()==1) {
+        header('location:quiz.php');
+    }
+}
 // verif et injection
 public function connecte_verif($pPseudo,$pMail,$pMdp){
     // recuperation des inputs

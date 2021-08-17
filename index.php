@@ -45,7 +45,8 @@
 $form = new contact();
 if (isset($_POST['submit'])) {
     if ($_POST['mdp']===$_POST['mdp1']) {
-        $form->connecte_verif($_POST['pseudo'],$_POST['mail'],$_POST['mdp']);
+        $passCrypter=password_hash($_POST['mdp'],PASSWORD_DEFAULT,['cost'=>14]);
+        $form->connecte_verif($_POST['pseudo'],$_POST['mail'],$passCrypter);
     }
 }
 
