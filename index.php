@@ -49,6 +49,7 @@ if (isset($_POST['submit'])) {
         $form->connecte_verif($_POST['pseudo'],$_POST['mail'],$passCrypter);
     }
 }
+
     ?>
 </body>
 </html>

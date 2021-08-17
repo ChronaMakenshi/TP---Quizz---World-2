@@ -2,10 +2,17 @@
 include_once 'database.php';
 class contact{
 
+
+
+
     // creation construct du HTML
 public function __construct(){
     
     }
+
+
+
+
 
     // test securiter
 public function test_input($data) {
@@ -14,6 +21,13 @@ public function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
   }
+// 
+
+
+
+
+
+
 
 // verif connection
 public function connecte($Pseudo,$Mdp)
@@ -25,12 +39,23 @@ public function connecte($Pseudo,$Mdp)
         $sql = "select * FROM inscription WHERE pseudo='$pseudo'"; 
         $reponse = $pdo->query($sql);
         $ligne = $reponse -> fetch();
-            $test= $ligne['mdp'];
+            $mdp1= $ligne['mdp'];
+             $role=$ligne['role'];
            
-            $verif= password_verify($Mdp,$test);
+            $verif= password_verify($Mdp,$mdp1);
          // connection
     if ($reponse->rowCount()===1 && $verif===true) {
-     header('location:quiz.php');
+     
+        if ($role==='joueur') {
+            header('location:quiz2.php');
+        }
+        if ($role==='admin') {
+            header('location:adminchoix.php');
+        }
+        if ($role==='editeur'){
+            header('location:creer');
+        }
+
     }else{
     unset($_COOKIE['pseudo']);
     unset($_COOKIE['pass']);
