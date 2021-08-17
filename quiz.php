@@ -15,10 +15,6 @@
       <a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
     </div>
     <a class="p-2 bd-highlight" href="creer.php">Créer</a>
-    <?php
-
-    $json = file_get_contents("json/quizzweb.json");
-?>
     <!-- visuel de depart avec les theme -->
 
     <script src="js/jquery-3.6.0.js"></script>
