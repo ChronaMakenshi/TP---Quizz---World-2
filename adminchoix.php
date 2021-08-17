@@ -20,8 +20,9 @@
     <table class="table  text-center m-auto table-striped table-primary">
     <tr>
         <td>ID</td>
-        <td>Titre</td>
-        <td>Nom de l'image</td>
+        <td>pseudo</td>
+        <td>Email</td>
+        <td>Role</td>
         <td>Supprimé</td>
         <td>Validé</td>
 <?php
@@ -41,16 +42,17 @@ while($ligne = $reponse -> fetch() ){
     $pseudo=$ligne['pseudo'];
     $mail=$ligne['mail'];
     $id=$ligne['id'];
-    $mail=$ligne['role'];
+    $role=$ligne['role'];
     echo "<tr><td>".$ligne["id"]."</td>";
     echo "<td>".$ligne["pseudo"]."</a></td>";
     echo "<td>".$ligne["mail"]."</td>";
+    echo "<td>".$ligne["role"]."</td>";
     echo "<td><a href='supprimer1.php?code= $ligne[id]'> Suprimer </a></td>";
     echo "<td><a href='valide.php?code= $ligne[id]'>Valider</a></td></tr>";
 }
 ?>
     </tr>
 </table>
-
+<a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
 </body>
 </html>
