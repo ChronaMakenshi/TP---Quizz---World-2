@@ -140,7 +140,9 @@ input[type="radio"] {
   border-radius: 50%;
   outline: none;
 }
-
+.all a{
+  font-size: 15px;
+}
 input[type="radio"]:before {
   content: "";
   display: block;
