@@ -47,12 +47,6 @@ if (!empty($_POST['pseudo'])AND!empty($_POST['pass'])) {
 }
 $erreur = true;
 
-
-        
-
-
-
-
 if (isset($_POST['submit'])) {
     if (empty($_POST["pseudo"] && $_POST['pass'] ) ) {
         $msg = "Saisie obligatoire";
@@ -67,22 +61,6 @@ if (isset($_POST['submit'])) {
 
     }
 }
-        
-
-
-
-
-
-
 ?>
-
-
-
-
-
-
-
-
-
 </body>
 </html>
