@@ -22,6 +22,7 @@
         <td>ID</td>
         <td>Titre</td>
         <td>Nom de l'image</td>
+        <td>difficulté</td>
         <td>Supprimé</td>
         <td>Validé</td>
 <?php
@@ -41,9 +42,11 @@ while($ligne = $reponse -> fetch() ){
     $titre=$ligne['titre'];
     $image=$ligne['image'];
     $id=$ligne['id'];
+    $difficulter=$ligne['difficulter'];
     echo "<tr><td>".$ligne["id"]."</td>";
     echo "<td><a href='edite.php?code= $ligne[titre]'>".$ligne["titre"]."</a></td>";
     echo "<td>".$ligne["image"]."</td>";
+    echo "<td>".$ligne["difficulter"]."</td>";
     echo "<td><a href='supprimer.php?code= $ligne[id]'> Suprimer </a></td>";
     echo "<td><a href='valide.php?code= $ligne[id]'>Valider</a></td></tr>";
 }
