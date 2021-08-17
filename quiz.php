@@ -29,31 +29,15 @@
     echo "<a class='bd-highlight' href='supprimer.php?code= ".$ligne['difficulter'].">Supprimer</a>";
     echo "<div><input value='débutant' type='radio' name='internet' id='color-1' checked />";
     echo "<label class='color-1' for='color-1'>Débutant</label>";
-                </div>
-                  <a class="bd-highlight" href="editer.php">Editer</a>
-                </div>
-                <div class="d-flex flex-column">
-                  <a class="bd-highlight" href="supprimer.php?code= $ligne[difficulter]">Supprimer</a>
-                <div>
-                <input
-                  value="confirmé"
-                  type="radio"
-                  name="internet"
-                  id="color-2"
-                />
-                <label class="color-2" for="color-2">Confirmé</label>
-                </div>
-                  <a class="bd-highlight" href="editer.php">Editer</a>
-                </div>
-                <div class="d-flex flex-column">
-                 <a class="bd-highlight" href="supprimer.php?code= $ligne[difficulter]">Supprimer</a>
-                <div>
-                <input
-                  value="expert"
-                  type="radio"
-                  name="internet"
-                  id="color-3"
-                />
+    echo "</div><a class='bd-highlight' href='editer.php'>Editer</a></div>";
+    echo "<div class='d-flex flex-column'>";
+    echo "<a class='bd-highlight' href='supprimer.php?code=".$ligne['difficulter'].">Supprimer</a>";
+    echo "<div><input value='confirmé' type='radio' name='internet' id='color-2'/>";
+    echo "<label class='color-2' for='color-2'>Confirmé</label>";
+    echo "</div><a class='bd-highlight' href='editer.php'>Editer</a></div>";
+    echo "<div class='d-flex flex-column'>";
+    echo "<a class='bd-highlight' href='supprimer.php?code=".$ligne['difficulter'].">Supprimer</a>";
+    echo "<div><input value="expert" type="radio" name="internet" id="color-3"/>
                 <label class="color-3" for="color-3">Expert</label>
                 </div>
                   <a class="bd-highlight" href="editer.php">Editer</a>
