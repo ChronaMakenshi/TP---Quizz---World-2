@@ -54,7 +54,7 @@ $erreur = true;
 
 
 if (isset($_POST['submit'])) {
-    if (empty($_POST["pseudo"] && $_POST['pass'] ) ) {
+    if (empty($_POST["pseudo"] || empty($_POST['pass'] ))) {
         $msg = "Saisie obligatoire";
         $erreur = true;
         if ($erreur == true) {

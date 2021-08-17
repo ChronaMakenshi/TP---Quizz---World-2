@@ -15,15 +15,17 @@
     <form class="p-2 bg-opacity">
     <div class="text-center">
         <h2 class="my-5">Admistration du Quizz World</h2>
+        <a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
     </div>
     <div class="table-responsive">
     <table class="table  text-center m-auto table-striped table-primary">
     <tr>
         <td>ID</td>
-        <td>Titre</td>
-        <td>Nom de l'image</td>
+        <td>Pseudo</td>
+        <td>Adresse mail</td>
         <td>Supprimé</td>
         <td>Validé</td>
+        <td>Role</td>
 <?php
 
 include 'database.php';
