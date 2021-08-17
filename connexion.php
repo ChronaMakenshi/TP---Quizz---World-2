@@ -31,6 +31,7 @@
 </form>
 <?php
 include 'contact.php';
+
 $form= new contact();
 $mail=null;
 $pass=null;
@@ -45,18 +46,28 @@ if (!empty($_POST['pseudo'])AND!empty($_POST['pass'])) {
     setcookie('password',$_POST['pass']);
 }
 $erreur = true;
-        if (empty($_POST["pseudo"] ) || empty($_POST["pass"] )) {
-            $msg = "Saisie obligatoire";
-            $erreur = true;
-            if ($erreur == true) {
-                echo $msg;
-            }
-        }else{
-            
-            $form->connecte($_POST['pseudo'],$_POST['pass']);
 
 
+        
+
+
+
+
+if (isset($_POST['submit'])) {
+    if (empty($_POST["pseudo"] && $_POST['pass'] ) ) {
+        $msg = "Saisie obligatoire";
+        $erreur = true;
+        if ($erreur == true) {
+            echo $msg;
         }
+    }else{
+        
+        $form->connecte($_POST['pseudo'],$_POST['pass']);
+
+
+    }
+}
+        
 
 
 

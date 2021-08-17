@@ -21,18 +21,8 @@ public function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
   }
-//   affichage info
-public function verif($tableau){
+// 
 
-    $pdo = Database::connect();
-    // interrogation BDD
-        $sql = "select * FROM $tableau "; 
-        $reponse = $pdo->prepare($sql);
-        return $reponse;
-
-
-
-}
 
 
 
@@ -42,17 +32,24 @@ public function verif($tableau){
 // verif connection
 public function connecte($Pseudo,$Mdp)
 {
-    $pseudo=$this->test_input($Pseudo);
-    $mdp=$this->test_input($Mdp);
     $pdo = Database::connect();
+    $pseudo=$this->test_input($Pseudo);
+    
     // interrogation BDD
-        $sql = "select * FROM inscription WHERE pseudo= :pseudo AND mdp =:mdp"; 
-        $reponse = $pdo->prepare($sql);
-        $reponse->execute(array(":pseudo"=>$pseudo,":mdp"=>$mdp));
-        var_dump($reponse->rowCount());
-    // connection
-    if ($reponse->rowCount()==1) {
-        header('location:quiz.php');
+        $sql = "select * FROM inscription WHERE pseudo='$pseudo'"; 
+        $reponse = $pdo->query($sql);
+        $ligne = $reponse -> fetch();
+            $test= $ligne['mdp'];
+           
+            $verif= password_verify($Mdp,$test);
+         // connection
+    if ($reponse->rowCount()===1 && $verif===true) {
+     header('location:quiz.php');
+    }else{
+    unset($_COOKIE['pseudo']);
+    unset($_COOKIE['pass']);
+    setcookie('pseudo','',time()-10);
+    setcookie('password','',time()-10);
     }
 }
 // verif et injection
@@ -63,9 +60,9 @@ public function connecte_verif($pPseudo,$pMail,$pMdp){
         $mdp=$this->test_input($pMdp);
         $pdo = Database::connect();
     // interrogation BDD
-        $sql = "select * FROM inscription WHERE pseudo= :pseudo AND  mail = :mail AND mdp =:mdp"; 
+        $sql = "select * FROM inscription WHERE pseudo= :pseudo"; 
         $reponse = $pdo->prepare($sql);
-        $reponse->execute(array(":pseudo"=>$pseudo,":mail"=>$mail,":mdp"=>$mdp));
+        $reponse->execute(array(":pseudo"=>$pseudo));
     // verification doublon dans BDD+envoie du mail generer
     if ($reponse->rowCount()==1) {
         header('location:connexion.php');

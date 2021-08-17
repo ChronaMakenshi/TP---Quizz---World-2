@@ -135,37 +135,32 @@ $("input").on("click", function () {
 
         // dropzone
 
-        html1 +=
-          "<div class='col-12 mx-auto' id='drop'></div>";
+        html1 += "<div class='col-12 mx-auto' id='drop'></div>";
 
         $("#test2").html(html1);
 
         // zone de text draggable avec option timer
 
         $("#drag1").draggable({
-          cursor:
-            "url(../img/cursor_main_mini.png),auto",
+          cursor: "url(../img/cursor_main_mini.png),auto",
 
           revert: "invalid",
           revertDuration: 300,
         });
         $("#drag2").draggable({
-          cursor:
-            "url(../img/cursor_main_mini.png),auto",
+          cursor: "url(../img/cursor_main_mini.png),auto",
 
           revert: "invalid",
           revertDuration: 300,
         });
         $("#drag3").draggable({
-          cursor:
-            "url(../img/cursor_main_mini.png),auto",
+          cursor: "url(../img/cursor_main_mini.png),auto",
 
           revert: "invalid",
           revertDuration: 300,
         });
         $("#drag4").draggable({
-          cursor:
-            "url(../img/cursor_main_mini.png),auto",
+          cursor: "url(../img/cursor_main_mini.png),auto",
 
           revert: "invalid",
           revertDuration: 300,
@@ -328,29 +323,25 @@ $("input").on("click", function () {
         // zone text draggable
 
         $("#drag1").draggable({
-          cursor:
-            "url(../img/cursor_main_mini.png),auto",
+          cursor: "url(../img/cursor_main_mini.png),auto",
 
           revert: "invalid",
           revertDuration: 300,
         });
         $("#drag2").draggable({
-          cursor:
-            "url(../img/cursor_main_mini.png),auto",
+          cursor: "url(../img/cursor_main_mini.png),auto",
 
           revert: "invalid",
           revertDuration: 300,
         });
         $("#drag3").draggable({
-          cursor:
-            "url(../img/cursor_main_mini.png),auto",
+          cursor: "url(../img/cursor_main_mini.png),auto",
 
           revert: "invalid",
           revertDuration: 300,
         });
         $("#drag4").draggable({
-          cursor:
-            "url(../img/cursor_main_mini.png),auto",
+          cursor: "url(../img/cursor_main_mini.png),auto",
 
           revert: "invalid",
           revertDuration: 300,
