@@ -18,10 +18,8 @@ include 'database.php';
     <title>Quizz World</title>
   </head>
   <body class="m-auto">
-    <div class="d-flex flex-wrap bd-highlight mb-3">
-      <h1 class="my-5 p-2 bd-highlight m-auto text-primary">Quizz World</h1>
-      <a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
-    </div>
+      <a class="p-2 bd-highlight text-decoration-none d-flex justify-content-end" href="connexion.php?action=deconnecter">Déconnexion</a>
+      <h1 class="my-5 p-2 bd-highlight text-center text-primary">Quizz World</h1>
     <a class="p-2 bd-highlight" href="creer.php">Créer</a>
     </div>
     <?php         

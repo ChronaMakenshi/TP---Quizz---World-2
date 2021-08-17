@@ -9,10 +9,8 @@
     <title>Inscription au Quizz World</title>
 </head>
 <body class="text-primary">
-    <div class="d-flex flex-wrap bd-highlight mb-3">
-        <h1 class="m-3 p-2 bd-highlight m-auto">Quizz World</h1>
-        <a class="p-2 bd-highlight text-decoration-none" href="connexion.php">Connexion</a>
-    </div>
+        <a class="p-2 bd-highlight text-decoration-none d-flex justify-content-end" href="connexion.php">Connexion</a>
+        <h1 class="my-5 p-2 bd-highlight text-center text-primary">Quizz World</h1>   
     <div class="p-2 bg-opacity">
     <form method="POST">
     <div class="text-center">
