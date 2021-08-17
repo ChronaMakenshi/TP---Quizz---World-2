@@ -31,14 +31,10 @@
 
 include 'database.php';
 
-
-
 $pdo = Database::connect();
     // interrogation BDD
         $sql = "select * FROM inscription "; 
         $reponse = $pdo->query($sql);
-         
-    
 
 while($ligne = $reponse -> fetch() ){
     $pseudo=$ligne['pseudo'];

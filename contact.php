@@ -2,17 +2,10 @@
 include_once 'database.php';
 class contact{
 
-
-
-
     // creation construct du HTML
 public function __construct(){
     
     }
-
-
-
-
 
     // test securiter
 public function test_input($data) {
@@ -22,12 +15,6 @@ public function test_input($data) {
     return $data;
   }
 // 
-
-
-
-
-
-
 
 // verif connection
 public function connecte($Pseudo,$Mdp)
