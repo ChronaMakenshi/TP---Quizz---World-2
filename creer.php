@@ -67,19 +67,4 @@
     
 </body>
 </html>
-<?php
-
-include 'database.php';
-
-
-if(isset($_POST['submit'])){
-$pdo = Database::connect();
-    // interrogation BDD
-        $sql = "insert into membres(nom_membre,login_membre) values (:nom,:login) "; 
-        $reponse = $pdo->query($sql);
-    
-        $Nom = $_POST["nom"];
-        $Login = $_POST["login"];
-     
-    }
 ?>
