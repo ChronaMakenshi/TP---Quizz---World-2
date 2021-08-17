@@ -56,3 +56,4 @@ while($ligne = $reponse -> fetch() ){
 <a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
 </body>
 </html>
+trait_exists
