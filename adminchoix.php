@@ -26,7 +26,6 @@
         <td>Supprimé</td>
         <td>Validé</td>
         <td>Role</td>
-        <td>test</td>
 <?php
 
 include 'database.php';
