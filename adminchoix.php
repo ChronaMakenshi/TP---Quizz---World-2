@@ -37,10 +37,6 @@ $pdo = Database::connect();
         $reponse = $pdo->query($sql);
 
 while($ligne = $reponse -> fetch() ){
-    $pseudo=$ligne['pseudo'];
-    $mail=$ligne['mail'];
-    $id=$ligne['id'];
-    $role=$ligne['role'];
     echo "<tr><td>".$ligne["id"]."</td>";
     echo "<td>".$ligne["pseudo"]."</a></td>";
     echo "<td>".$ligne["mail"]."</td>";

@@ -31,19 +31,38 @@ include 'database.php';
     echo "<div class='card h-100 fond'>";
     echo "<h2 class='text-center'>".$ligne["titre"]."</h2>";
     echo "<img src='img/".$ligne['image']."' class='m-auto' alt='...' />";
-    echo "<div id='web' class='card-body'>";
+    echo "<div id='".$ligne["id"]."' class='card-body'>";
     echo "<div class='d-flex flex-row justify-content-evenly'>";
-    echo "<input class='mt-3' value='débutant' type='radio' name='internet' id='color-1' checked />";
+    echo "<input class='mt-3' value='débutant' type='radio' name='".$ligne["id"]."' id='color-1' checked />";
     echo "<label class='color-1' for='color-1'>Débutant</label>";
-    echo "<input class='mt-3' value='confirmé' type='radio' name='internet' id='color-2'/>";
+    echo "<input class='mt-3' value='confirmé' type='radio' name='".$ligne["id"]."' id='color-2'/>";
     echo "<label class='color-2' for='color-2'>Confirmé</label>";
-    echo "<input class='mt-3' value='expert' type='radio' name='internet' id='color-3'/>";
+    echo "<input class='mt-3' value='expert' type='radio' name='".$ligne["id"]."' id='color-3'/>";
     echo "<label class='color-3' for='color-3'>Expert</label>";
     echo "</div></div></div></div>";
     }
     echo "</div></div>"
     ?>
-   
+    <div class="">
+      <!-- different visuel -->
+      <div class="all1">
+        <div class="bg-opacity text-primary" id="test1"></div>
+        <div class="bg-opacity text-primary" id="test2"></div>
+        <div id="test3" class="bg-opacity text-primary"></div>
+
+        <!-- 1er bouton suivant -->
+
+        <button id="testbtn">suivant</button>
+
+        <!-- bouton suivant de la derniere question -->
+
+        <button id="testbtn1">suivant</button>
+
+        <!-- bounton accueil -->
+
+        <button id="btnaccueil">Retour au Quizz World</button>
+      </div>
+    </div>
 
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/jquery-ui.js"></script>

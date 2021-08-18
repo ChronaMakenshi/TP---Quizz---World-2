@@ -34,10 +34,6 @@ $pdo = Database::connect();
         $reponse = $pdo->query($sql);
 
 while($ligne = $reponse -> fetch() ){
-    $titre=$ligne['titre'];
-    $image=$ligne['image'];
-    $id=$ligne['id'];
-    $difficulter=$ligne['difficulter'];
     echo "<tr><td>".$ligne["id"]."</td>";
     echo "<td><a href='edite.php?code= $ligne[titre]'>".$ligne["titre"]."</a></td>";
     echo "<td>".$ligne["image"]."</td>";
