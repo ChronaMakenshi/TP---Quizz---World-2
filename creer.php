@@ -67,7 +67,7 @@ if(isset($_POST['submit'])){
     </div> 
 
 
-    <!-- <div class="mb-3 w-25 m-auto mt-5">
+    <!--- <div class="mb-3 w-25 m-auto mt-5">
         <label for="exampleInputQuestion " class="form-label">Question  1/10</label>
         <input type="text" class="form-control" name="Question " id="exampleInputQuestion 1">
     </div>
