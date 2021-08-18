@@ -139,32 +139,6 @@ $("input").on("click", function () {
 
         $("#test2").html(html1);
 
-        // zone de text draggable avec option timer
-
-        $("#drag1").draggable({
-          cursor: "url(../img/cursor_main_mini.png),auto",
-
-          revert: "invalid",
-          revertDuration: 300,
-        });
-        $("#drag2").draggable({
-          cursor: "url(../img/cursor_main_mini.png),auto",
-
-          revert: "invalid",
-          revertDuration: 300,
-        });
-        $("#drag3").draggable({
-          cursor: "url(../img/cursor_main_mini.png),auto",
-
-          revert: "invalid",
-          revertDuration: 300,
-        });
-        $("#drag4").draggable({
-          cursor: "url(../img/cursor_main_mini.png),auto",
-
-          revert: "invalid",
-          revertDuration: 300,
-        });
 
         // drop zone
 
@@ -319,34 +293,7 @@ $("input").on("click", function () {
           "<div class='d-flex justify-content-center text-primary col-12 mx-auto' id='drop'></div>";
 
         $("#test2").html(html1);
-
-        // zone text draggable
-
-        $("#drag1").draggable({
-          cursor: "url(../img/cursor_main_mini.png),auto",
-
-          revert: "invalid",
-          revertDuration: 300,
-        });
-        $("#drag2").draggable({
-          cursor: "url(../img/cursor_main_mini.png),auto",
-
-          revert: "invalid",
-          revertDuration: 300,
-        });
-        $("#drag3").draggable({
-          cursor: "url(../img/cursor_main_mini.png),auto",
-
-          revert: "invalid",
-          revertDuration: 300,
-        });
-        $("#drag4").draggable({
-          cursor: "url(../img/cursor_main_mini.png),auto",
-
-          revert: "invalid",
-          revertDuration: 300,
-        });
-
+        
         // drop zone
 
         $("#drop").droppable({
