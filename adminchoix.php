@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,10 +12,10 @@
     <div class="d-flex flex-wrap bd-highlight mb-3">
         <h1 class="m-3 p-2 bd-highlight m-auto">Quizz World</h1>
     </div>
-    <form class="p-2 bg-opacity">
+    <form class="p-2 bg-opacity" method="post">
     <div class="text-center">
         <h2 class="my-5">Admistration du Quizz World</h2>
-        <a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
+       
     </div>
     <div class="table-responsive">
     <table class="table  text-center m-auto table-striped table-primary">
@@ -25,35 +25,29 @@
         <td>Adresse mail</td>
         <td>Role</td>
         <td>Supprimé</td>
-        <td>Validé</td>
-        
 <?php
-
 include 'database.php';
-
-
-
 $pdo = Database::connect();
     // interrogation BDD
-        $sql = "select * FROM inscription "; 
+        $sql = "select * FROM inscription where role='null' "; 
         $reponse = $pdo->query($sql);
-         
-    
-
 while($ligne = $reponse -> fetch() ){
     $pseudo=$ligne['pseudo'];
     $mail=$ligne['mail'];
     $id=$ligne['id'];
     $role=$ligne['role'];
-    echo "<tr><td>".$ligne["id"]."</td>";
-    echo "<td>".$ligne["pseudo"]."</a></td>";
-    echo "<td>".$ligne["mail"]."</td>";
-    echo "<td>".$ligne["role"]."</td>";
-    echo "<td><a href='supprimer1.php?code= $ligne[id]'> Suprimer </a></td>";
-    echo "<td><a href='valide.php?code= $ligne[id]'>Valider</a></td></tr>";
+   
+    echo "<tr><td>".$id."</td>";
+    echo "<td><a href='valide.php?code=$id&pseudo=$pseudo&mail=$mail&role=$role'>".$pseudo."</a></td>";
+    echo "<td>".$mail."</td>";
+    echo"<td>".$role."</td>";
+    echo "<td><a href='supprimer1.php?code= $id'> Suprimer </a></td>";
+   echo "</tr>";
+    
 }
 ?>
-    </tr>
+</form>
+</tr>
 </table>
 <a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
 </body>

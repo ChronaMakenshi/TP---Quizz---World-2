@@ -27,17 +27,10 @@
         <td>Validé</td>
 <?php
 include 'database.php';
-
-
-
 $pdo = Database::connect();
     // interrogation BDD
         $sql = "select * FROM admistration "; 
         $reponse = $pdo->query($sql);
-        
- 
-    
-
 while($ligne = $reponse -> fetch() ){
     $titre=$ligne['titre'];
     $image=$ligne['image'];
