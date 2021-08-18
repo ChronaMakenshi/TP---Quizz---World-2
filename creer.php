@@ -6,6 +6,7 @@ if(isset($_POST['submit'])){
         $tmp_name = $_FILES['file']['tmp_name'];
         $name = $_FILES['file']['name'];
         // extention d'image
+        
         $tabextention = explode('.', $name);
         $extention =strtolower(end($tabextention));
 

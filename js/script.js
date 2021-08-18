@@ -20,7 +20,7 @@ $("input").on("click", function () {
   $("#test1").show();
 
   // recuperation nom du theme dans le HTML
-  
+
   let add = $(this).parent().parent().attr("id");
 
   // recuperation difficulter choisie par l'utilisateur dans le html
@@ -41,7 +41,7 @@ $("input").on("click", function () {
     url: "json/quizz" + add + ".json",
     type: "GET",
     dataType: "json",
-  
+
     success: function (data) {
       let html = "";
 
@@ -138,7 +138,6 @@ $("input").on("click", function () {
         html1 += "<div class='col-12 mx-auto' id='drop'></div>";
 
         $("#test2").html(html1);
-
 
         // drop zone
 
@@ -293,7 +292,7 @@ $("input").on("click", function () {
           "<div class='d-flex justify-content-center text-primary col-12 mx-auto' id='drop'></div>";
 
         $("#test2").html(html1);
-        
+
         // drop zone
 
         $("#drop").droppable({

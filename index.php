@@ -1,8 +1,4 @@
-<?php
-if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
-    header('location:connexion.php?action=deconnecter');
-   }
-?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -46,7 +42,7 @@ if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
     <?php 
     include 'contact.php';
 $form = new contact();
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])&& !empty($_POST['pseudo'])&& !empty($_POST['mail'])&& !empty($_POST['mdp'])&& !empty($_POST['mdp1'])) {
     if ($_POST['mdp']===$_POST['mdp1']) {
         $passCrypter=password_hash($_POST['mdp'],PASSWORD_DEFAULT,['cost'=>14]);
         $form->connecte_verif($_POST['pseudo'],$_POST['mail'],$passCrypter);
