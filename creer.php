@@ -18,6 +18,7 @@ if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
         <h1 class="m-3 p-2 bd-highlight m-auto">Quizz World</h1>
     </div>
     <div class="p-2 bg-opacity">
+        
     <form method="POST">
     <div class="text-center">
         <h2 class="my-5">Céer un questionnaire</h2>

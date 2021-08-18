@@ -48,6 +48,7 @@ while($ligne = $reponse -> fetch() ){
 ?>
     </tr>
 </table>
-
+<a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
+<a class="p-2 bd-highlight text-decoration-none" href="Admin.php">Retour</a>
 </body>
 </html>

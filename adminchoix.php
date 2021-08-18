@@ -1,3 +1,8 @@
+<?php
+if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
+ header('location:connexion.php?action=deconnecter');
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -28,9 +33,13 @@
 <?php
 include 'database.php';
 $pdo = Database::connect();
+$pdo1= Database::connect();
     // interrogation BDD
         $sql = "select * FROM inscription where role='null'"; 
-        $reponse = $pdo->query($sql);
+        $sql1="select * FROM inscription";
+        $reponse =$pdo->query($sql);
+        $reponse1=$pdo1->query($sql1);
+        Database::disconnect();
 while($ligne = $reponse -> fetch() ){
     $pseudo=$ligne['pseudo'];
     $mail=$ligne['mail'];
@@ -46,18 +55,39 @@ while($ligne = $reponse -> fetch() ){
     
 }
 
-if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
- header('location:connexion.php?action=deconnecter');
-}
-
-
-
-
 
 ?>
-</form>
-</tr>
 </table>
-<a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
+<div class="text-center">
+        <h2 class="my-5">Tout les joueur inscript</h2>
+       
+    </div>
+    
+<table class="table  text-center m-auto table-striped table-primary">
+    <tr>
+        <td>ID</td>
+        <td>Pseudo</td>
+        <td>Adresse mail</td>
+        <td>Role</td>
+        <td>Supprimé</td>
+
+<?php
+while($ligne1 = $reponse1 -> fetch() ){
+    $pseudo1=$ligne1['pseudo'];
+    $mail1=$ligne1['mail'];
+    $id1=$ligne1['id'];
+    $role1=$ligne1['role'];
+   
+    echo "<tr><td>".$id1."</td>";
+    echo "<td><a href='valide.php?code=$id1&pseudo=$pseudo1&mail=$mail1&role=$role1'>".$pseudo1."</a></td>";
+    echo "<td>".$mail1."</td>";
+    echo"<td>".$role1."</td>";
+    echo "<td><a href='supprimer1.php?code= $id1'> Suprimer </a></td>";
+    echo "</tr>";
+    
+}
+?>
+</form>
+</table>
 </body>
 </html>
