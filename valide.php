@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
 <form action="" method="POST">
 <table class="table mt-5 text-center m-auto table-striped table-primary text-primary">
     <tr>
-      <th class="text-primary">pseudo</th>
+      <td class="text-primary">pseudo</td>
       <td class="text-primary">mail</td>
       <td class="text-primary">role</td>
       <td class="text-primary">Validé</td>
