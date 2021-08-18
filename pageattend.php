@@ -12,6 +12,6 @@
    
         <h1 class="text-center mt-5">En attente de validation de l'Administrateur</h1>
         <iframe class="d-flex m-auto mt-5" width="560" height="315" src="https://www.youtube.com/embed/x5J5_R-GtyI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
+            <a class="p-2 bd-highlight text-decoration-none d-flex justify-content-end" href="connexion.php">Retour du Roi</a>
 </body>
 </html>
