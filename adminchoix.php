@@ -42,8 +42,8 @@ while($ligne = $reponse -> fetch() ){
     echo "<td>".$mail."</td>";
     echo"<td>".$role."</td>";
     echo "<td><a href='supprimer1.php?code= $id'> Suprimer </a></td>";
-   echo "</tr>";
-    
+    echo "</tr>";
+    test
 }
 ?>
 </form>

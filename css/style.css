@@ -17,10 +17,13 @@ body {
   background-image: url(../img/quiz.jpg);
   background-size: cover;
   font-family: "Sacramento", cursive;
-  font-size: 1.8em;
+  font-size: 35px;
   width: 100%;
 }
 /* image theme choisie */
+.card{
+  width: 98%;
+}
 .img1 {
   width: 50%;
   border: dashed white 15px;
@@ -98,7 +101,7 @@ h1 {
 }
 /* titre H2 */
 h2 {
-  font-size: 40px;
+  font-size: 30px;
   padding-top: 5px;
   font-weight: bold;
   text-shadow: 3px 3px 2px #5a2b52;
@@ -114,42 +117,33 @@ h3 {
   color: #2ecc71;
   text-shadow: 3px 2px 6px black;
   font-weight: bold;
-  font-size: 80%;
+  font-size: 70%;
 }
 .color-2 {
   color: #f1c40f;
   text-shadow: 3px 2px 6px black;
   font-weight: bold;
-  font-size: 80%;
+  font-size: 70%;
 }
 .color-3 {
   color: #ff1e1e;
   text-shadow: 3px 2px 5px black;
   font-weight: bold;
-  font-size: 80%;
+  font-size: 70%;
 }
 
 /* bouton radio */
 
 input[type="radio"] {
-  width: 17px;
-  min-width: 17px;
-  height: 17px;
-  min-height: 17px;
   border: 1px solid darkgray;
   border-radius: 50%;
   outline: none;
 }
-.all a{
-  font-size: 15px;
-}
+
 input[type="radio"]:before {
   content: "";
   display: block;
-  width: 60%;
-  height: 60%;
-  margin: 20% auto;
-  border-radius: 50%;
+  
 }
 
 input[type="radio"]#color-1:checked:before {

@@ -1,3 +1,11 @@
+<?php
+include 'database.php';
+
+    $pdo = Database::connect();
+        // interrogation BDD
+            $sql = "SELECT * FROM `admistration` ORDER BY `id` ASC"; 
+            $reponse = $pdo->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -10,45 +18,39 @@
     <title>Quizz World</title>
   </head>
   <body class="m-auto">
-    <div class="d-flex flex-wrap bd-highlight mb-3">
-      <h1 class="my-5 p-2 bd-highlight m-auto text-primary">Quizz World</h1>
-      <a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
+      <a class="p-2 bd-highlight text-decoration-none d-flex justify-content-end" href="connexion.php?action=deconnecter">Déconnexion</a>
+      <h1 class="my-5 p-2 bd-highlight text-center text-primary">Quizz World</h1>
+    <a class="p-2 bd-highlight" href="creer.php">Créer</a>
     </div>
-    <?php
-    while($ligne = $reponse -> fetch() ){
-    echo "<a class='p-2 bd-highlight' href='creer.php'>Créer</a>";
+    <?php         
+     
     echo "<div class='all'>";
-    echo "<div class='row row-col row-col-md-4 g-4 mb-5'>";
+    echo "<div class='row row-col row-col-md-4 g-4 m-auto'>";
+    while($ligne = $reponse -> fetch() ){
     echo "<div class='col'>";
     echo "<div class='card h-100 fond'>";
-    echo "<h2 class='text-center'>Application Web</h2>";
-    echo "<img src='img/web.jpg' class='m-auto' alt='...' />";
-    echo "<div id='web' class='card-body'>";
-    echo "<div class='d-flex justify-content-evenly'>";
-    echo "<div class='d-flex flex-column'>";
-    echo "<a class='bd-highlight' href='supprimer.php?code= ".$ligne['difficulter'].">Supprimer</a>";
-    echo "<div><input value='débutant' type='radio' name='internet' id='color-1' checked />";
+    echo "<h2 class='text-center'>".$ligne["titre"]."</h2>";
+    echo "<img src='img/".$ligne['image']."' class='m-auto' alt='...' />";
+    echo "<div id='".$ligne["Theme"]."' class='card-body'>";
+    echo "<div class='d-flex flex-row justify-content-evenly'>";
+    echo "<input class='mt-3' value='débutant' type='radio' name='".$ligne["Theme"]."' id='color-1'/>";
     echo "<label class='color-1' for='color-1'>Débutant</label>";
-    echo "</div><a class='bd-highlight' href='editer.php'>Editer</a></div>";
-    echo "<div class='d-flex flex-column'>";
-    echo "<a class='bd-highlight' href='supprimer.php?code=".$ligne['difficulter'].">Supprimer</a>";
-    echo "<div><input value='confirmé' type='radio' name='internet' id='color-2'/>";
+    echo "<input class='mt-3' value='confirmé' type='radio' name='".$ligne["Theme"]."' id='color-2'/>";
     echo "<label class='color-2' for='color-2'>Confirmé</label>";
-    echo "</div><a class='bd-highlight' href='editer.php'>Editer</a></div>";
-    echo "<div class='d-flex flex-column'>";
-    echo "<a class='bd-highlight' href='supprimer.php?code=".$ligne['difficulter'].">Supprimer</a>";
-    echo "<div><input value="expert" type="radio" name="internet" id="color-3"/>
-                <label class="color-3" for="color-3">Expert</label>
-                </div>
-                  <a class="bd-highlight" href="editer.php">Editer</a>
-                </div>
-                </div>
-            </div>
-          </div>
-        </div>
-</div>
-    <!-- visuel de depart avec les theme -->
-
+    echo "<input class='mt-3' value='expert' type='radio' name='".$ligne["Theme"]."' id='color-3'/>";
+    echo "<label class='color-3' for='color-3'>Expert</label>";
+    echo "</div></div></div></div>";
+    }
+  ?>
+    </div>
+  </div>
+      <div class='all1'>
+      <div class='bg-opacity text-primary' id='test1'></div>
+      <div class='bg-opacity text-primary' id='test2'></div>
+      <div id='test3' class='bg-opacity text-primary'></div>
+        <button id='testbtn'>suivant</button>
+        <button id='testbtn1'>suivant</button>
+        <button id='btnaccueil'>Retour au Quizz World</button></div>
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/script.js"></script>

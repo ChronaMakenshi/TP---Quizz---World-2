@@ -20,7 +20,7 @@ $("input").on("click", function () {
   $("#test1").show();
 
   // recuperation nom du theme dans le HTML
-
+  
   let add = $(this).parent().parent().attr("id");
 
   // recuperation difficulter choisie par l'utilisateur dans le html
@@ -41,7 +41,7 @@ $("input").on("click", function () {
     url: "json/quizz" + add + ".json",
     type: "GET",
     dataType: "json",
-
+  
     success: function (data) {
       let html = "";
 
