@@ -33,13 +33,13 @@ include 'database.php';
     echo "<img src='img/".$ligne['image']."' class='m-auto' alt='...' />";
     echo "<div id='".$ligne["Theme"]."' class='card-body'>";
     echo "<div class='d-flex flex-row justify-content-evenly'>";
-    echo "<input class='mt-3' value='débutant' type='radio' name='".$ligne["Theme"]."' id='color-1'/>";
-    echo "<label class='color-1' for='color-1'>Débutant</label>";
-    echo "<input class='mt-3' value='confirmé' type='radio' name='".$ligne["Theme"]."' id='color-2'/>";
-    echo "<label class='color-2' for='color-2'>Confirmé</label>";
-    echo "<input class='mt-3' value='expert' type='radio' name='".$ligne["Theme"]."' id='color-3'/>";
-    echo "<label class='color-3' for='color-3'>Expert</label>";
-    echo "</div></div></div></div>";
+    echo "<input class='mt-3' value='débutant' type='radio' name='".$ligne["Theme"]."' id='".$ligne["id"]."'/>";
+    echo "<label class='color-1' for='".$ligne["id"]."'>Débutant</label>";
+    echo "<input class='mt-3' value='confirmé' type='radio' name='".$ligne["Theme"]."' id='".$ligne["id"]."'/>";
+    echo "<label class='color-2' for='".$ligne["id"]."'>Confirmé</label>";
+    echo "<input class='mt-3' value='expert' type='radio' name='".$ligne["Theme"]."' id='".$ligne["id"]."'/>";
+    echo "<label class='color-3' for='".$ligne["id"]."'>Expert</label></div>";
+    echo "</div></div></div>";
     }
   ?>
     </div>
