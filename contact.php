@@ -34,7 +34,7 @@ public function connecte($Pseudo,$Mdp)
     if ($reponse->rowCount()===1 && $verif===true) {
      
         if ($role==='joueur') {
-            header('location:quiz2.php');
+            header('location:quiz.php');
         }
         if ($role==='admin') {
             header('location:adminchoix.php');
@@ -65,7 +65,7 @@ public function connecte_verif($pPseudo,$pMail,$pMdp){
     if ($reponse->rowCount()==1) {
         header('location:connexion.php');
     }else{
-        $sql="insert into inscription( pseudo, mail, mdp) VALUES (:pseudo,:mail,:mdp)";
+        $sql="insert into inscription( pseudo, mail, mdp,role) VALUES (:pseudo,:mail,:mdp,'null')";
         $reponse=$pdo->prepare($sql);
         $reponse->execute(array(":pseudo"=>$pseudo,":mail"=>$mail,":mdp"=>$mdp));
         Database::disconnect();
