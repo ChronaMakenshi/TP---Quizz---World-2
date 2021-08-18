@@ -1,4 +1,4 @@
-<?php
+<?php include 'database.php';
 if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
     header('location:connexion.php?action=deconnecter');
    }
@@ -13,23 +13,15 @@ if(isset($_POST['submit'])){
         if(in_array($extention, $extentionauto)){
             move_uploaded_file($tmp_name, './img/'.$name); // upload de l'image 
             // les envois des données 
-            $dsn = "mysql:dbname=bdd-quizz;host=localhost:3306";
-            try {
-                $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, 
-                                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
-                                
-                $connexion = new PDO($dsn, "root", "", $option);
-        
-            } catch (PDOException $e) {
-                printf("Echec connexion : %s\n", $e->getMessage());
-            }
-        
-            $sql ="insert into admistration(titre,image) values (:titre,:nom_image)";
-            $reponse = $connexion->prepare($sql);
+            $pdo = Database::connect();
+            // interrogation BDD
+                $sql = "insert into admistration(titre,image,Theme) values (:titre,:nom_image,:theme)"; 
+                $reponse = $pdo->prepare($sql);
         
             $titre = $_POST["titre"];
+            $theme = $_POST["theme"];
             $name = $_FILES['file']['name'];
-            $reponse->execute(array(":titre" => $titre, ":nom_image" => $name));
+            $reponse->execute(array(":titre" => $titre, ":nom_image" => $name,":nom_image" => $name, ":theme" => $theme));
             header('Location: creer.php'); 
             exit();
         }
@@ -62,6 +54,10 @@ if(isset($_POST['submit'])){
     <div class="mb-3 w-25 m-auto">
         <label for="exampleInputtheme" class="form-label">Titre du questionnaire</label>
         <input class="border w-100" type="text" name="titre" id="">
+    </div>
+    <div class="mb-3 w-25 m-auto">
+        <label for="exampleInputtheme" class="form-label">Théme du questionnaire</label>
+        <input class="border w-100" type="text" name="theme" id="">
     </div>
     <div class="mb-3 w-25 m-auto">
         <label for="exampleInputimage1" class="form-label">image du questionnaire</label>
