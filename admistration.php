@@ -25,7 +25,7 @@
         <td>difficulté</td>
         <td>Supprimé</td>
         <td>Validé</td>
-        test
+       
 <?php
 include 'database.php';
 $pdo = Database::connect();

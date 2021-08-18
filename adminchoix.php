@@ -43,7 +43,7 @@ while($ligne = $reponse -> fetch() ){
     echo"<td>".$role."</td>";
     echo "<td><a href='supprimer1.php?code= $id'> Suprimer </a></td>";
     echo "</tr>";
-    test
+    
 }
 ?>
 </form>
