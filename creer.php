@@ -2,6 +2,43 @@
 if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
     header('location:connexion.php?action=deconnecter');
    }
+if(isset($_POST['submit'])){
+        $tmp_name = $_FILES['file']['tmp_name'];
+        $name = $_FILES['file']['name'];
+        // extention d'image
+        
+        $tabextention = explode('.', $name);
+        $extention =strtolower(end($tabextention));
+
+        $extentionauto = ['png', 'gif', 'jpg', 'jpeg'];
+        if(in_array($extention, $extentionauto)){
+            move_uploaded_file($tmp_name, './img/'.$name); // upload de l'image 
+            // les envois des données 
+            $dsn = "mysql:dbname=bdd-quizz;host=localhost:3306";
+            try {
+                $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, 
+                                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
+                                
+                $connexion = new PDO($dsn, "root", "", $option);
+        
+            } catch (PDOException $e) {
+                printf("Echec connexion : %s\n", $e->getMessage());
+            }
+        
+            $sql ="insert into admistration(titre,image) values (:titre,:nom_image)";
+            $reponse = $connexion->prepare($sql);
+        
+            $titre = $_POST["titre"];
+            $name = $_FILES['file']['name'];
+            $reponse->execute(array(":titre" => $titre, ":nom_image" => $name));
+            header('Location: creer.php'); 
+            exit();
+        }
+        else{ 
+            echo 'Mauvaise extension';
+        }
+         
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,22 +55,23 @@ if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
         <h1 class="m-3 p-2 bd-highlight m-auto">Quizz World</h1>
     </div>
     <div class="p-2 bg-opacity">
-        
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
     <div class="text-center">
         <h2 class="my-5">Céer un questionnaire</h2>
     </div>
     <div class="d-flex">
     <div class="mb-3 w-25 m-auto">
         <label for="exampleInputtheme" class="form-label">Titre du questionnaire</label>
-        <input type="text" class="form-control" name="theme" id="exampleInputtheme1">
+        <input class="border w-100" type="text" name="titre" id="">
     </div>
     <div class="mb-3 w-25 m-auto">
         <label for="exampleInputimage1" class="form-label">image du questionnaire</label>
-        <input type="file" class="form-control" name="image" id="exampleInputimage1">
+        <input class="border w-100" type="file" name="file" id="">
     </div> 
     </div> 
-    <div class="mb-3 w-25 m-auto mt-5">
+
+
+    <!-- <div class="mb-3 w-25 m-auto mt-5">
         <label for="exampleInputQuestion " class="form-label">Question  1/10</label>
         <input type="text" class="form-control" name="Question " id="exampleInputQuestion 1">
     </div>
@@ -65,7 +103,7 @@ if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
         <input type="radio" class="me-1" name="bonnereponse" id="bonnereponse">Bonne réponse
     </div>
     </div>
-    </div>
+    </div> -->
     <div class="py-3 d-flex justify-content-end me-5">
     <button type="submit" name="submit" class="btn-white btn-outline-primary">Page suivante</button>
     </div>
