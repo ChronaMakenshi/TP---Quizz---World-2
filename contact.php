@@ -32,7 +32,9 @@ public function connecte($Pseudo,$Mdp)
             $verif= password_verify($Mdp,$mdp1);
          // connection
     if ($reponse->rowCount()===1 && $verif===true) {
-     
+        if ($role==='null') {
+            header('location:pageattend.php');
+        }
         if ($role==='joueur') {
             header('location:quiz.php');
         }
