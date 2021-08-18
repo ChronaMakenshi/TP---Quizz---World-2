@@ -14,7 +14,7 @@
     </div>
     <form class="p-2 bg-opacity">
     <div class="text-center">
-        <h2 class="my-5">Admistration du Quizz World</h2>
+        <h2 class="my-5">Administration du Quizz World</h2>
     </div>
     <div class="table-responsive">
     <table class="table  text-center m-auto table-striped table-primary">
