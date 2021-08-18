@@ -39,7 +39,7 @@ public function connecte($Pseudo,$Mdp)
             header('location:quiz.php');
         }
         if ($role==='admin') {
-            header('location:adminchoix.php');
+            header('location:admin.php');
         }
         if ($role==='editeur'){
             header('location:creer');

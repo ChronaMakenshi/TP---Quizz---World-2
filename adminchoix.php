@@ -45,6 +45,15 @@ while($ligne = $reponse -> fetch() ){
     echo "</tr>";
     
 }
+
+if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
+ header('location:connexion.php?action=deconnecter');
+}
+
+
+
+
+
 ?>
 </form>
 </tr>

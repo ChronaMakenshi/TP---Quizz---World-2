@@ -1,3 +1,8 @@
+<?php
+if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
+    header('location:connexion.php?action=deconnecter');
+   }
+?>
 <?php 
     include 'database.php';
 if (isset($_POST['submit'])) {
