@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
             $titre = $_POST["titre"];
             $theme = $_POST["theme"];
             $name = $_FILES['file']['name'];
-            $reponse->execute(array(":titre" => $titre, ":nom_image" => $name,":nom_image" => $name, ":theme" => $theme));
+            $reponse->execute(array(":titre" => $titre, ":nom_image" => $name, ":theme" => $theme));
             header('Location: creerq.php'); 
             exit();
         }
