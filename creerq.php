@@ -20,8 +20,6 @@
         <div class="table-responsive">
         <form action="" method="POST">
     <table class="table  text-center m-auto table-striped table-primary">
-    <tr><td>débutant</td> 
-    <?php echo "<td><input type='checkbox' name='diff' value='1' id='1'></td>";?>
     <tr>
         <td>numéro de question</td>
         <td>Question</td>
@@ -30,16 +28,11 @@
         <td>choix deux</td>
         <td>choix trois</td>
         <td>choix quatre</td>
-        <td>reponse</td> 
+        <td>reponse</td>
+        <td>débutant</td> 
+        
+   
 <?php
-<<<<<<< HEAD
- $tableau = [1,2];
- $i = 0;
- $max = count( $tableau );
-
- while ($i < $max) {
-    echo "<tr><td>'.$array[ $i ].'</td>";
-=======
  $tableau = [1,2,3,4,5,6,7,8,9,10];
  foreach ($tableau as $cle => $valeur) {
     echo "<tr><td>$valeur</td>";
@@ -75,11 +68,7 @@ $tableau = [1,2,3,4,5,6,7,8,9,10];
     echo "<td><input class='w-100' type='text' name='choix2' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix3' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
-<<<<<<< HEAD
-    echo "<td><input class='w-100' type='text' name='rep' id=''></td>";
-=======
     echo "<td><input class='w-100' type='text' name='rep'></td>";
->>>>>>> 63042d771f239ff29d2a93ce3a76fcc740753054
     echo "<td><input type='radio' name='diff' value='2' id='2'></td>";
 }
 ?>
@@ -97,23 +86,37 @@ $tableau = [1,2,3,4,5,6,7,8,9,10];
 $tableau = [1,2,3,4,5,6,7,8,9,10];
  foreach ($tableau as $cle => $valeur) {
     echo "<tr><td>$valeur</td>";
->>>>>>> 00a5fcb18d9e4a9b1b4d95bfe6617916a6be1ec4
     echo "<td><input type='text' name='quest' id=''></td>";
     echo "<td><input  type='text' name='anoec' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix1' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix2' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix3' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='rep' id=''></td></tr>";
+    echo "<td><input class='w-100' type='text' name='rep'></td>";
+    echo "<td><input type='radio' name='diff' value='3' id='3'></td></tr>";
 }
 ?>
-
-
 </table>
         <div class="py-3 d-flex justify-content-end me-5">
             <button type="submit" name="submit" class="btn-white btn-outline-primary">Validé</button>
         </div>
     </form>
- 
+    <?php 
+    include 'database.php';
+if (isset($_POST['submit'])) {
+    $pdo = Database::connect();
+    $sql ="insert into question(id_difficulter,questions,reponse,anoecdote) values (:diff,:quest,:rep,:anoec)";
+    $reponse = $pdo->prepare($sql);
+
+    $diff = $_POST["diff"];
+    $quest = $_POST["quest"];
+    $rep = $_POST["rep"];
+    $anoec = $_POST["anoec"];
+    
+    
+    $reponse->execute(array(":diff" => $diff,":quest" => $quest,":rep" => $rep, ":anoec" =>  $anoec));
+    header("location:creerq.php");
+}
+?>
     </body>
 </html>
