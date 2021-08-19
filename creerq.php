@@ -92,7 +92,7 @@ $tableau = [1,2,3,4,5,6,7,8,9,10];
     echo "<td><input class='w-100' type='text' name='choix2' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix3' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='rep' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='rep'></td>";
     echo "<td><input type='radio' name='diff' value='3' id='3'></td></tr>";
 }
 ?>
