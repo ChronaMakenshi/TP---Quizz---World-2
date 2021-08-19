@@ -30,11 +30,10 @@
         <td>choix quatre</td>
         <td>reponse</td>
         <td>débutant</td> 
-        <td>confirmé</td> 
-        <td>expert</td>
+        
    
 <?php
- $tableau = [1];
+ $tableau = [1,2,3,4,5,6,7,8,9,10];
  foreach ($tableau as $cle => $valeur) {
     echo "<tr><td>$valeur</td>";
     echo "<td><input type='text' name='quest' id=''></td>";
@@ -45,7 +44,55 @@
     echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
     echo "<td><input class='w-100' type='text' name='rep' id=''></td>";
     echo "<td><input type='radio' name='diff' value='1' id='1'></td>";
+    "<td><input type='radio' name='diff' value='2' id='2'></td>";
+    "<td><input type='radio' name='diff' value='3' id='3'></td></tr>";
+}
+?>
+<tr>
+<td>numéro de question</td>
+<td>Question</td>
+<td>anoecdote</td>
+<td>choix un</td>
+<td>choix deux</td>
+<td>choix trois</td>
+<td>choix quatre</td>
+<td>reponse</td>
+<td>confirmé</td> 
+<?php
+$tableau = [1,2,3,4,5,6,7,8,9,10];
+ foreach ($tableau as $cle => $valeur) {
+    echo "<tr><td>$valeur</td>";
+    echo "<td><input type='text' name='quest' id=''></td>";
+    echo "<td><input  type='text' name='anoec' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='choix1' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='choix2' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='choix3' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='rep' id=''></td>";
     echo "<td><input type='radio' name='diff' value='2' id='2'></td>";
+}
+?>
+<tr>
+<td>numéro de question</td>
+<td>Question</td>
+<td>anoecdote</td>
+<td>choix un</td>
+<td>choix deux</td>
+<td>choix trois</td>
+<td>choix quatre</td>
+<td>reponse</td>
+<td>expert</td> 
+<?php
+$tableau = [1,2,3,4,5,6,7,8,9,10];
+ foreach ($tableau as $cle => $valeur) {
+    echo "<tr><td>$valeur</td>";
+    echo "<td><input type='text' name='quest' id=''></td>";
+    echo "<td><input  type='text' name='anoec' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='choix1' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='choix2' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='choix3' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='rep' id=''></td>";
     echo "<td><input type='radio' name='diff' value='3' id='3'></td></tr>";
 }
 ?>
@@ -54,28 +101,21 @@
             <button type="submit" name="submit" class="btn-white btn-outline-primary">Validé</button>
         </div>
     </form>
-    <?php
-    if(isset($_POST['submit'])){
-    $dsn = "mysql:dbname=bdd-quizz;host=localhost:3306";
-    try {
-        $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, 
-                        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
-                        
-        $connexion = new PDO($dsn, "root", "", $option);
+    <?php 
+    include 'database.php';
+if (isset($_POST['submit'])) {
+    $pdo = Database::connect();
+    $sql ="insert into question(id_difficulter,questions,reponse,anoecdote) values (:diff,:quest,:rep,:anoec)";
+    $reponse = $pdo->prepare($sql);
 
-    } catch (PDOException $e) {
-        printf("Echec connexion : %s\n", $e->getMessage());
-    }
-
-    $sql ="insert into question(id_difficulter,questions,reponse,anoecdote) values (:diff,:quest,:rep,:diff)";
-    $reponse = $connexion->prepare($sql);
-
-    $Nom = $_POST["nom"];
-    $Login = $_POST["login"];
+    $diff = $_POST["diff"];
+    $quest = $_POST["quest"];
+    $rep = $_POST["rep"];
+    $anoec = $_POST["anoec"];
     
     
-    $reponse->execute(array(":nom" => $Nom,":login" => $Login));
-    header("location:index.php");
+    $reponse->execute(array(":diff" => $diff,":quest" => $quest,":rep" => $rep, ":anoec" =>  $anoec));
+    header("location:creerq.php");
 }
 ?>
     </body>

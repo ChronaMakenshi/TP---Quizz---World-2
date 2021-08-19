@@ -1,8 +1,27 @@
-<?php include 'database.php';
+<?php 
+include 'database.php';
 if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
     header('location:connexion.php?action=deconnecter');
    }
-if(isset($_POST['submit'])){
+if(isset($_POST['submit'])&& !empty($_POST['titre'])&& !empty($_POST['theme'])){
+    $pdo1 = Database::connect();
+    // interrogation BDD
+        $titre1=$_POST['titre'];
+        $theme1=$_POST['theme'];
+        
+
+
+        $sql1 = "select * FROM admistration WHERE (titre=:titre  OR Theme=:theme)"; 
+        $reponse1 = $pdo1->prepare($sql1);
+        $reponse1->execute(array(":titre"=>$titre1,":theme"=>$theme1));
+
+    // verification doublon dans BDD
+
+
+    if ($reponse1->rowCount()==1) {
+        header('location:creer.php');
+    }else{
+
         $tmp_name = $_FILES['file']['tmp_name'];
         $name = $_FILES['file']['name'];
         // extention d'image
@@ -19,7 +38,7 @@ if(isset($_POST['submit'])){
                 $sql = "insert into admistration(titre,image,Theme) values (:titre,:nom_image,:theme)"; 
                 $reponse = $pdo->prepare($sql);
         
-            $titre = $_POST["titre"];
+            $titre =$_POST["titre"] ;
             $theme = $_POST["theme"];
             $name = $_FILES['file']['name'];
             $reponse->execute(array(":titre" => $titre, ":nom_image" => $name, ":theme" => $theme));
@@ -29,6 +48,10 @@ if(isset($_POST['submit'])){
         else{ 
             echo 'Mauvaise extension';
         }
+
+    }
+
+       
          
 }
 ?>
@@ -66,7 +89,7 @@ if(isset($_POST['submit'])){
     </div> 
     </div> 
 
-    <div class="py-3 d-flex justify-content-end me-5">
+    <div class="py-3 d-flex  justify-content-end me-5">
     <button type="submit" name="submit" class="btn-white btn-outline-primary">Page suivante</button>
     </div>
 </form>

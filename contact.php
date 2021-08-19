@@ -63,7 +63,7 @@ public function connecte_verif($pPseudo,$pMail,$pMdp){
         $sql = "select * FROM inscription WHERE pseudo= :pseudo"; 
         $reponse = $pdo->prepare($sql);
         $reponse->execute(array(":pseudo"=>$pseudo));
-    // verification doublon dans BDD+envoie du mail generer
+    // verification doublon dans BDD
     if ($reponse->rowCount()==1) {
         header('location:connexion.php');
     }else{

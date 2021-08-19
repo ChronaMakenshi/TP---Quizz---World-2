@@ -58,6 +58,8 @@ while($ligne = $reponse -> fetch() ){
 
 ?>
 </table>
+<a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
+<a class="p-2 bd-highlight text-decoration-none" href="Admin.php">Retour</a>
 <div class="text-center">
         <h2 class="my-5">Tout les joueur inscript</h2>
        
@@ -89,5 +91,7 @@ while($ligne1 = $reponse1 -> fetch() ){
 ?>
 </form>
 </table>
+<a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
+<a class="p-2 bd-highlight text-decoration-none" href="Admin.php">Retour</a>
 </body>
 </html>
