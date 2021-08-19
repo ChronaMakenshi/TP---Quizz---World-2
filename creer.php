@@ -85,7 +85,7 @@ if(isset($_POST['submit'])&& !empty($_POST['titre'])&& !empty($_POST['theme'])){
     </div>
     <div class="mb-3 w-25 m-auto">
         <label for="exampleInputimage1" class="form-label">image du questionnaire</label>
-        <input class="border w-100" type="file" name="file" id="">
+        <input class="border w-100" type="file" name="file">
     </div> 
     </div> 
 
