@@ -1,5 +1,5 @@
 <?php
-if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
+if (empty($_COOKIE['pseudo']) OR empty($_COOKIE['password'])) {
     header('location:connexion.php?action=deconnecter');
    }
 ?>
