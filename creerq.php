@@ -33,90 +33,78 @@
         
    
 <?php
- $tableau = [1,2,3,4,5,6,7,8,9,10];
- foreach ($tableau as $cle => $valeur) {
-    echo "<tr><td>$valeur</td>";
-    echo "<td><input type='text' name='quest' id=''></td>";
-    echo "<td><input  type='text' name='anoec' id=''></td>";
+include 'database.php';
+
+ $i=1;
+ for($i;$i<=2;$i++) {
+    echo "<tr><td>$i</td>";
+    echo "<td><input type='text' name='quest$i' id=''></td>";
+    echo "<td><input  type='text' name='anoec$i' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix1' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix2' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix3' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='rep' id=''></td>";
-    echo "<td><input type='radio' name='diff' value='1' id='1'></td>";
-    "<td><input type='radio' name='diff' value='2' id='2'></td>";
-    "<td><input type='radio' name='diff' value='3' id='3'></td></tr>";
+    echo "<td><input class='w-100' type='text' name='rep$i' id=''></td>";
+    echo "<td><input type='checkbox' name='diff' value='1' id='1'></td>";
+    if (!empty($_POST["quest$i"]) && !empty($_POST["anoec$i"])&& !empty($_POST["rep$i"])&& isset($_POST['submit'])) {
+        $pdo = Database::connect();
+    $sql ="insert into question(id_difficulter,questions,reponse,anoecdote) values (1,:quest,:rep,:anoec)";
+    $reponse = $pdo->prepare($sql);
+
+    
+    $quest = $_POST["quest$i"];
+    $rep = $_POST["rep$i"];
+    $anoec = $_POST["anoec$i"];
+    $reponse->execute(array(":quest" => $quest,":rep" => $rep, ":anoec" =>  $anoec));
+}
+}
+?>
+
+<form action="" method="POST">
+    <table class="table  text-center m-auto table-striped table-primary">
+    <tr>
+        <td>numéro de question</td>
+        <td>Question</td>
+        <td>anoecdote</td>
+        <td>choix un</td>
+        <td>choix deux</td>
+        <td>choix trois</td>
+        <td>choix quatre</td>
+        <td>reponse</td>
+        <td>confirmé</td> 
+<?php
+$i=1;
+ for($i;$i<=2;$i++) {
+    echo "<tr><td>$i</td>";
+    echo "<td><input type='text' name='quest1$i' id=''></td>";
+    echo "<td><input  type='text' name='anoec1$i' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='choix1' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='choix2' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='choix3' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
+    echo "<td><input class='w-100' type='text' name='rep1$i' id=''></td>";
+    echo "<td><input type='checkbox' name='diff' value='2' id='1'></td>";
+    if (!empty($_POST["quest1$i"]) && !empty($_POST["anoec1$i"])&& !empty($_POST["rep1$i"])&& isset($_POST['submit'])) {
+        $pdo1 = Database::connect();
+    $sql1 ="insert into question(id_difficulter,questions,reponse,anoecdote) values (2,:quest,:rep,:anoec)";
+    $reponse1 = $pdo1->prepare($sql1);
+
+  
+    $quest1 = $_POST["quest1$i"];
+    $rep1 = $_POST["rep1$i"];
+    $anoec1 = $_POST["anoec1$i"];
+    $reponse1->execute(array(":quest" => $quest1,":rep" => $rep1, ":anoec" =>  $anoec1));
+}
 }
 ?>
 <tr>
-<td>numéro de question</td>
-<td>Question</td>
-<td>anoecdote</td>
-<td>choix un</td>
-<td>choix deux</td>
-<td>choix trois</td>
-<td>choix quatre</td>
-<td>reponse</td>
-<td>confirmé</td> 
-<?php
-$tableau = [1,2,3,4,5,6,7,8,9,10];
- foreach ($tableau as $cle => $valeur) {
-    echo "<tr><td>$valeur</td>";
-    echo "<td><input type='text' name='quest' id=''></td>";
-    echo "<td><input  type='text' name='anoec' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='choix1' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='choix2' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='choix3' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='rep'></td>";
-    echo "<td><input type='radio' name='diff' value='2' id='2'></td>";
-}
-?>
-<tr>
-<td>numéro de question</td>
-<td>Question</td>
-<td>anoecdote</td>
-<td>choix un</td>
-<td>choix deux</td>
-<td>choix trois</td>
-<td>choix quatre</td>
-<td>reponse</td>
-<td>expert</td> 
-<?php
-$tableau = [1,2,3,4,5,6,7,8,9,10];
- foreach ($tableau as $cle => $valeur) {
-    echo "<tr><td>$valeur</td>";
-    echo "<td><input type='text' name='quest' id=''></td>";
-    echo "<td><input  type='text' name='anoec' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='choix1' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='choix2' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='choix3' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
-    echo "<td><input class='w-100' type='text' name='rep'></td>";
-    echo "<td><input type='radio' name='diff' value='3' id='3'></td></tr>";
-}
-?>
+
 </table>
         <div class="py-3 d-flex justify-content-end me-5">
             <button type="submit" name="submit" class="btn-white btn-outline-primary">Validé</button>
         </div>
     </form>
     <?php 
-    include 'database.php';
-if (isset($_POST['submit'])) {
-    $pdo = Database::connect();
-    $sql ="insert into question(id_difficulter,questions,reponse,anoecdote) values (:diff,:quest,:rep,:anoec)";
-    $reponse = $pdo->prepare($sql);
-
-    $diff = $_POST["diff"];
-    $quest = $_POST["quest"];
-    $rep = $_POST["rep"];
-    $anoec = $_POST["anoec"];
-    
-    
-    $reponse->execute(array(":diff" => $diff,":quest" => $quest,":rep" => $rep, ":anoec" =>  $anoec));
-    header("location:creerq.php");
-}
 ?>
     </body>
 </html>
