@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-<?php include 'database.php';
-if(isset($_POST['submit'])){
-        
-            $pdo = Database::connect();
-            // interrogation BDD
-
-
-
-            $quest = $_POST["quest"];
-            $anoecdote = $_POST["anoecdote"];
-            $reponse = $_POST["reponse"];
-            $difficulter = $_POST["difficulte"];
-                
-            
-            
-            $sql = "insert into question(questions,reponse,anoecdote,id_difficulter) values (:question,:reponse,:anoecdote,:difficulter)"; 
-            $reponse = $pdo->prepare($sql);
-            $reponse->execute(array(":question" => $quest,":anoecdote" => $anoecdote,":reponse" => $reponse,":difficulter" => $difficulter));
-        }
-?>
-=======
->>>>>>> a080e8d8d0e8fd6260a034309ea4fbf685ca97f5
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -91,12 +68,6 @@ $tableau = [1,2,3,4,5,6,7,8,9,10];
     echo "<td><input class='w-100' type='text' name='choix2' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix3' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
-<<<<<<< HEAD
-    echo "<td><input class='w-100' type='text' name='reponse' id=''></td>";
-    echo "<td><input type='radio' value='debutant' name='difficulte' id=''></td>";
-    echo "<td><input type='radio' value='confirmme' name='difficulte' id=''></td>";
-    echo "<td><input type='radio' value='expert' name='difficulte' id=''></td></tr>";
-=======
     echo "<td><input class='w-100' type='text' name='rep' id=''></td>";
     echo "<td><input type='radio' name='diff' value='2' id='2'></td>";
 }
@@ -123,7 +94,6 @@ $tableau = [1,2,3,4,5,6,7,8,9,10];
     echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
     echo "<td><input class='w-100' type='text' name='rep' id=''></td>";
     echo "<td><input type='radio' name='diff' value='3' id='3'></td></tr>";
->>>>>>> a080e8d8d0e8fd6260a034309ea4fbf685ca97f5
 }
 ?>
 </table>

@@ -1,6 +1,6 @@
 <?php 
 include 'database.php';
-if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
+if (empty($_COOKIE['pseudo']) OR empty($_COOKIE['password'])) {
     header('location:connexion.php?action=deconnecter');
    }
 if(isset($_POST['submit'])&& !empty($_POST['titre'])&& !empty($_POST['theme'])){
