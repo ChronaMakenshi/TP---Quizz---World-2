@@ -41,7 +41,7 @@ if(isset($_POST['submit'])&& !empty($_POST['titre'])&& !empty($_POST['theme'])){
             $titre =$_POST["titre"] ;
             $theme = $_POST["theme"];
             $name = $_FILES['file']['name'];
-            $reponse->execute(array(":titre" => $titre, ":nom_image" => $name,":theme" => $theme));
+            $reponse->execute(array(":titre" => $titre, ":nom_image" => $name, ":theme" => $theme));
             header('Location: creerq.php'); 
             exit();
         }
@@ -89,7 +89,7 @@ if(isset($_POST['submit'])&& !empty($_POST['titre'])&& !empty($_POST['theme'])){
     </div> 
     </div> 
 
-    <div class="py-3 d-flex justify-content-end me-5">
+    <div class="py-3 d-flex  justify-content-end me-5">
     <button type="submit" name="submit" class="btn-white btn-outline-primary">Page suivante</button>
     </div>
 </form>
