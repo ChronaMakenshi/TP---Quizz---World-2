@@ -11,7 +11,7 @@ if(isset($_POST['submit'])&& !empty($_POST['titre'])&& !empty($_POST['theme'])){
         
 
 
-        $sql1 = "select * FROM admistration WHERE (titre=:titre  AND Theme=:theme)"; 
+        $sql1 = "select * FROM admistration WHERE (titre=:titre  OR Theme=:theme)"; 
         $reponse1 = $pdo1->prepare($sql1);
         $reponse1->execute(array(":titre"=>$titre1,":theme"=>$theme1));
 

@@ -3,13 +3,18 @@ if(isset($_POST['submit'])){
         
             $pdo = Database::connect();
             // interrogation BDD
-                $sql = "insert into question(questions,reponse,anoecdote,id_difficulter) values (:question,:reponse,:anoecdote,:difficulter)"; 
-                $reponse = $pdo->prepare($sql);
-        
+
+
+
             $quest = $_POST["quest"];
             $anoecdote = $_POST["anoecdote"];
             $reponse = $_POST["reponse"];
             $difficulter = $_POST["difficulte"];
+                
+            
+            
+            $sql = "insert into question(questions,reponse,anoecdote,id_difficulter) values (:question,:reponse,:anoecdote,:difficulter)"; 
+            $reponse = $pdo->prepare($sql);
             $reponse->execute(array(":question" => $quest,":anoecdote" => $anoecdote,":reponse" => $reponse,":difficulter" => $difficulter));
         }
 ?>
@@ -58,9 +63,9 @@ if(isset($_POST['submit'])){
     echo "<td><input class='w-100' type='text' name='choix3' id=''></td>";
     echo "<td><input class='w-100' type='text' name='choix4' id=''></td>";
     echo "<td><input class='w-100' type='text' name='reponse' id=''></td>";
-    echo "<td><input type='radio' name='difficulte' id=''></td>";
-    echo "<td><input type='radio' name='difficulte' id=''></td>";
-    echo "<td><input type='radio' name='difficulte' id=''></td></tr>";
+    echo "<td><input type='radio' value='debutant' name='difficulte' id=''></td>";
+    echo "<td><input type='radio' value='confirmme' name='difficulte' id=''></td>";
+    echo "<td><input type='radio' value='expert' name='difficulte' id=''></td></tr>";
 }
 ?>
 </table>
