@@ -30,7 +30,10 @@
         <td>choix deux</td>
         <td>choix trois</td>
         <td>choix quatre</td>
-        <td>reponse</td> 
+        <td>reponse</td>
+        <td>débutant</td> 
+        
+   
 <?php
 $i = 1;
 for($i;$i<=10;$i++){
