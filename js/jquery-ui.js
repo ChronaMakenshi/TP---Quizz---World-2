@@ -6073,7 +6073,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 					if ( nodeName === "tbody" ) {
 						that._createTrPlaceholder(
 							that.currentItem.find( "tr" ).eq( 0 ),
-							$( "<tr>", that.document[ 0 ] ).appendTo( element )
+							$( "", that.document[ 0 ] ).appendTo( element )
 						);
 					} else if ( nodeName === "tr" ) {
 						that._createTrPlaceholder( that.currentItem, element );
@@ -6130,7 +6130,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 		var that = this;
 
 		sourceTr.children().each( function() {
-			$( "<td>&#160;</td>", that.document[ 0 ] )
+			$( "&#160;", that.document[ 0 ] )
 				.attr( "colspan", $( this ).attr( "colspan" ) || 1 )
 				.appendTo( targetTr );
 		} );
@@ -11332,14 +11332,14 @@ $.extend( Datepicker.prototype, {
 					this._generateMonthYearHeader( inst, drawMonth, drawYear, minDate, maxDate,
 					row > 0 || col > 0, monthNames, monthNamesShort ) + // draw month headers
 					"</div><table class='ui-datepicker-calendar'><thead>" +
-					"<tr>";
+					"";
 				thead = ( showWeek ? "<th class='ui-datepicker-week-col'>" + this._get( inst, "weekHeader" ) + "</th>" : "" );
 				for ( dow = 0; dow < 7; dow++ ) { // days of the week
 					day = ( dow + firstDay ) % 7;
 					thead += "<th scope='col'" + ( ( dow + firstDay + 6 ) % 7 >= 5 ? " class='ui-datepicker-week-end'" : "" ) + ">" +
 						"<span title='" + dayNames[ day ] + "'>" + dayNamesMin[ day ] + "</span></th>";
 				}
-				calender += thead + "</tr></thead><tbody>";
+				calender += thead + "</thead><tbody>";
 				daysInMonth = this._getDaysInMonth( drawYear, drawMonth );
 				if ( drawYear === inst.selectedYear && drawMonth === inst.selectedMonth ) {
 					inst.selectedDay = Math.min( inst.selectedDay, daysInMonth );
@@ -11350,9 +11350,9 @@ $.extend( Datepicker.prototype, {
 				this.maxRows = numRows;
 				printDate = this._daylightSavingAdjust( new Date( drawYear, drawMonth, 1 - leadDays ) );
 				for ( dRow = 0; dRow < numRows; dRow++ ) { // create date picker rows
-					calender += "<tr>";
+					calender += "";
 					tbody = ( !showWeek ? "" : "<td class='ui-datepicker-week-col'>" +
-						this._get( inst, "calculateWeek" )( printDate ) + "</td>" );
+						this._get( inst, "calculateWeek" )( printDate ) + "" );
 					for ( dow = 0; dow < 7; dow++ ) { // create date picker days
 						daySettings = ( beforeShowDay ?
 							beforeShowDay.apply( ( inst.input ? inst.input[ 0 ] : null ), [ printDate ] ) : [ true, "" ] );
@@ -11378,11 +11378,11 @@ $.extend( Datepicker.prototype, {
 							( printDate.getTime() === today.getTime() ? " ui-state-highlight" : "" ) +
 							( printDate.getTime() === currentDate.getTime() ? " ui-state-active" : "" ) + // highlight selected day
 							( otherMonth ? " ui-priority-secondary" : "" ) + // distinguish dates from other months
-							"' href='#'>" + printDate.getDate() + "</a>" ) ) + "</td>"; // display selectable date
+							"' href='#'>" + printDate.getDate() + "</a>" ) ) + ""; // display selectable date
 						printDate.setDate( printDate.getDate() + 1 );
 						printDate = this._daylightSavingAdjust( printDate );
 					}
-					calender += tbody + "</tr>";
+					calender += tbody + "";
 				}
 				drawMonth++;
 				if ( drawMonth > 11 ) {

@@ -24,12 +24,12 @@ if (empty($_COOKIE['pseudo']) OR empty($_COOKIE['password'])) {
     </div>
     <div class="table-responsive">
     <table class="table  text-center m-auto table-striped table-primary">
-    <tr>
-        <td>ID</td>
-        <td>Pseudo</td>
-        <td>Adresse mail</td>
-        <td>Role</td>
-        <td>Supprimé</td>
+    
+        ID
+        Pseudo
+        Adresse mail
+        Role
+        Supprimé
 <?php
 include 'database.php';
 $pdo = Database::connect();
@@ -46,12 +46,12 @@ while($ligne = $reponse -> fetch() ){
     $id=$ligne['id'];
     $role=$ligne['role'];
    
-    echo "<tr><td>".$id."</td>";
-    echo "<td><a href='valide.php?code=$id&pseudo=$pseudo&mail=$mail&role=$role'>".$pseudo."</a></td>";
-    echo "<td>".$mail."</td>";
-    echo"<td>".$role."</td>";
-    echo "<td><a href='supprimer1.php?code= $id'> Suprimer </a></td>";
-    echo "</tr>";
+    echo "".$id."";
+    echo "<a href='valide.php?code=$id&pseudo=$pseudo&mail=$mail&role=$role'>".$pseudo."</a>";
+    echo "".$mail."";
+    echo"".$role."";
+    echo "<a href='supprimer1.php?code= $id'> Suprimer </a>";
+    echo "";
     
 }
 
@@ -66,12 +66,12 @@ while($ligne = $reponse -> fetch() ){
     </div>
     
 <table class="table  text-center m-auto table-striped table-primary">
-    <tr>
-        <td>ID</td>
-        <td>Pseudo</td>
-        <td>Adresse mail</td>
-        <td>Role</td>
-        <td>Supprimé</td>
+    
+        ID
+        Pseudo
+        Adresse mail
+        Role
+        Supprimé
 
 <?php
 while($ligne1 = $reponse1 -> fetch() ){
@@ -80,12 +80,12 @@ while($ligne1 = $reponse1 -> fetch() ){
     $id1=$ligne1['id'];
     $role1=$ligne1['role'];
    
-    echo "<tr><td>".$id1."</td>";
-    echo "<td><a href='valide.php?code=$id1&pseudo=$pseudo1&mail=$mail1&role=$role1'>".$pseudo1."</a></td>";
-    echo "<td>".$mail1."</td>";
-    echo"<td>".$role1."</td>";
-    echo "<td><a href='supprimer1.php?code= $id1'> Suprimer </a></td>";
-    echo "</tr>";
+    echo "".$id1."";
+    echo "<a href='valide.php?code=$id1&pseudo=$pseudo1&mail=$mail1&role=$role1'>".$pseudo1."</a>";
+    echo "".$mail1."";
+    echo"".$role1."";
+    echo "<a href='supprimer1.php?code= $id1'> Suprimer </a>";
+    echo "";
     
 }
 ?>

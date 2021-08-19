@@ -23,13 +23,13 @@ if (empty($_COOKIE['pseudo']) OR empty($_COOKIE['password'])) {
     </div>
     <div class="table-responsive">
     <table class="table  text-center m-auto table-striped table-primary">
-    <tr>
-        <td>ID</td>
-        <td>Titre</td>
-        <td>Nom de l'image</td>
-        <td>difficulté</td>
-        <td>Supprimé</td>
-        <td>Validé</td>
+    
+        ID
+        Titre
+        Nom de l'image
+        difficulté
+        Supprimé
+        Validé
        
 <?php
 include 'database.php';
@@ -38,15 +38,15 @@ $pdo = Database::connect();
         $sql = "select * FROM admistration "; 
         $reponse = $pdo->query($sql);
 while($ligne = $reponse -> fetch() ){
-    echo "<tr><td>".$ligne["id"]."</td>";
-    echo "<td><a href='edite.php?code= $ligne[titre]'>".$ligne["titre"]."</a></td>";
-    echo "<td>".$ligne["image"]."</td>";
-    echo "<td>".$ligne["difficulter"]."</td>";
-    echo "<td><a href='supprimer.php?code= $ligne[id]'> Suprimer </a></td>";
-    echo "<td><a href='valide.php?code= $ligne[id]'>Valider</a></td></tr>";
+    echo "".$ligne["id"]."";
+    echo "<a href='edite.php?code= $ligne[titre]'>".$ligne["titre"]."</a>";
+    echo "".$ligne["image"]."";
+    echo "".$ligne["difficulter"]."";
+    echo "<a href='supprimer.php?code= $ligne[id]'> Suprimer </a>";
+    echo "<a href='valide.php?code= $ligne[id]'>Valider</a>";
 }
 ?>
-    </tr>
+    
 </table>
 <a class="p-2 bd-highlight text-decoration-none" href="connexion.php?action=deconnecter">Déconnexion</a>
 <a class="p-2 bd-highlight text-decoration-none" href="Admin.php">Retour</a>
