@@ -1,4 +1,4 @@
-<?php
+<?php include 'database.php';
 if (empty($_COOKIE['pseudo'])&& empty($_COOKIE['pass'])) {
     header('location:connexion.php?action=deconnecter');
    }
@@ -13,24 +13,16 @@ if(isset($_POST['submit'])){
         if(in_array($extention, $extentionauto)){
             move_uploaded_file($tmp_name, './img/'.$name); // upload de l'image 
             // les envois des données 
-            $dsn = "mysql:dbname=bdd-quizz;host=localhost:3306";
-            try {
-                $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, 
-                                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
-                                
-                $connexion = new PDO($dsn, "root", "", $option);
-        
-            } catch (PDOException $e) {
-                printf("Echec connexion : %s\n", $e->getMessage());
-            }
-        
-            $sql ="insert into admistration(titre,image) values (:titre,:nom_image)";
-            $reponse = $connexion->prepare($sql);
+            $pdo = Database::connect();
+            // interrogation BDD
+                $sql = "insert into admistration(titre,image,Theme) values (:titre,:nom_image,:theme)"; 
+                $reponse = $pdo->prepare($sql);
         
             $titre = $_POST["titre"];
+            $theme = $_POST["theme"];
             $name = $_FILES['file']['name'];
-            $reponse->execute(array(":titre" => $titre, ":nom_image" => $name));
-            header('Location: creer.php'); 
+            $reponse->execute(array(":titre" => $titre, ":nom_image" => $name,":nom_image" => $name, ":theme" => $theme));
+            header('Location: creerq.php'); 
             exit();
         }
         else{ 
@@ -64,45 +56,15 @@ if(isset($_POST['submit'])){
         <input class="border w-100" type="text" name="titre" id="">
     </div>
     <div class="mb-3 w-25 m-auto">
+        <label for="exampleInputtheme" class="form-label">Théme du questionnaire</label>
+        <input class="border w-100" type="text" name="theme" id="">
+    </div>
+    <div class="mb-3 w-25 m-auto">
         <label for="exampleInputimage1" class="form-label">image du questionnaire</label>
         <input class="border w-100" type="file" name="file" id="">
     </div> 
     </div> 
 
-
-    <!-- <div class="mb-3 w-25 m-auto mt-5">
-        <label for="exampleInputQuestion " class="form-label">Question  1/10</label>
-        <input type="text" class="form-control" name="Question " id="exampleInputQuestion 1">
-    </div>
-    <div class="w-25 m-auto">
-        <label for="exampleInputAnecdote" class="form-label">Anecdote</label>
-        <input type="text" class="form-control" name="mdp1" id="exampleInputAnecdote">
-    </div>
-    <div class="d-flex flex-wrap justify-content-center mt-5">
-    <div class="w-25 me-5">
-        <label for="exampleInputReponse" class="form-label">Reponse 1</label>
-        <input type="text" class="form-control" name="Reponse" id="exampleInputReponse">
-        <input type="radio" class="me-1" name="bonnereponse" id="bonnereponse">Bonne réponse
-    </div>
-    <div class="w-25">
-        <label for="exampleInputReponse" class="form-label">Reponse 2</label>
-        <input type="text" class="form-control" name="Reponse2" id="exampleInputReponse">
-        <input type="radio" class="me-1" name="bonnereponse" id="bonnereponse">Bonne réponse
-    </div>
-    </div>
-    <div class="d-flex flex-wrap justify-content-center mt-2">
-    <div class="w-25 me-5">
-        <label for="exampleInputReponse" class="form-label">Reponse 3</label>
-        <input type="text" class="form-control" name="Reponse3" id="exampleInputReponse">
-        <input type="radio" class="me-1" name="bonnereponse" id="bonnereponse">Bonne réponse
-    </div>
-    <div class="w-25">
-        <label for="exampleInputReponse" class="form-label">Reponse 4</label>
-        <input type="text" class="form-control" name="Reponse4" id="exampleInputReponse">
-        <input type="radio" class="me-1" name="bonnereponse" id="bonnereponse">Bonne réponse
-    </div>
-    </div>
-    </div> -->
     <div class="py-3 d-flex justify-content-end me-5">
     <button type="submit" name="submit" class="btn-white btn-outline-primary">Page suivante</button>
     </div>
